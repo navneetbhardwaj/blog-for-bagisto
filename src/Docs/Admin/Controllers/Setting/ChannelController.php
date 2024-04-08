@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class ChannelController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/channels",
-	 *      operationId="getChannels",
-	 *      tags={"Channels"},
-	 *      summary="Get admin channel list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/channels",
+     *      operationId="getChannels",
+     *      tags={"Channels"},
+     *      summary="Get admin channel list",
      *      description="Returns channel list, if you want to retrieve all channels at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class ChannelController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/channels/{id}",
-	 *      operationId="getChannel",
-	 *      tags={"Channels"},
-	 *      summary="Get admin channel detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/channels/{id}",
+     *      operationId="getChannel",
+     *      tags={"Channels"},
+     *      summary="Get admin channel detail",
      *      description="Returns channel detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class ChannelController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -280,7 +280,7 @@ class ChannelController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

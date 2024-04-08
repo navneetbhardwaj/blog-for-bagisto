@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Customer;
 
 class AddressController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/{customer_id}/addresses",
-	 *      operationId="getCustomerAddresses",
-	 *      tags={"CustomerAddresses"},
-	 *      summary="Get admin customer address list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/{customer_id}/addresses",
+     *      operationId="getCustomerAddresses",
+     *      tags={"CustomerAddresses"},
+     *      summary="Get admin customer address list",
      *      description="Returns customer address list, if you want to retrieve all customer addresses at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -82,18 +82,18 @@ class AddressController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/{customer_id}/addresses/{id}",
-	 *      operationId="getCustomerAddress",
-	 *      tags={"CustomerAddresses"},
-	 *      summary="Get admin customer's address detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/{customer_id}/addresses/{id}",
+     *      operationId="getCustomerAddress",
+     *      tags={"CustomerAddresses"},
+     *      summary="Get admin customer's address detail",
      *      description="Returns customer's address detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -125,11 +125,11 @@ class AddressController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -280,7 +280,7 @@ class AddressController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="company_name",
@@ -451,7 +451,7 @@ class AddressController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

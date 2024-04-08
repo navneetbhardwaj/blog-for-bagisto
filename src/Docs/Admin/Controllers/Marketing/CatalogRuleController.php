@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class CatalogRuleController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/catalog-rules",
-	 *      operationId="getCatalogRules",
-	 *      tags={"CatalogRules"},
-	 *      summary="Get admin catalog rule list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/catalog-rules",
+     *      operationId="getCatalogRules",
+     *      tags={"CatalogRules"},
+     *      summary="Get admin catalog rule list",
      *      description="Returns catalog rule list, if you want to retrieve all catalog rules at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class CatalogRuleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/catalog-rules/{id}",
-	 *      operationId="getCatalogRule",
-	 *      tags={"CatalogRules"},
-	 *      summary="Get admin catalog rule detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/catalog-rules/{id}",
+     *      operationId="getCatalogRule",
+     *      tags={"CatalogRules"},
+     *      summary="Get admin catalog rule detail",
      *      description="Returns catalog rule detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class CatalogRuleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -263,7 +263,7 @@ class CatalogRuleController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

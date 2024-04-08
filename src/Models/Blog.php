@@ -24,7 +24,7 @@ class Blog extends Model implements BlogContract
         'default_category',
         'author',
         'author_id',
-        'categorys',
+        'categories',
         'tags',
         'src',
         'status',
@@ -41,7 +41,7 @@ class Blog extends Model implements BlogContract
      *
      * @var array
      */
-    protected $appends = ['src_url', 'assign_categorys'];
+    protected $appends = ['src_url', 'assign_categories'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -73,15 +73,15 @@ class Blog extends Model implements BlogContract
         return Storage::url($this->src);
     }
 
-    public function getAssignCategorysAttribute()
+    public function getAssignCategoriesAttribute()
     {
-        $categorys = array();
-        $categories_ids = array_values( array_unique( array_merge( explode( ',', $this->default_category ), explode( ',', $this->categorys ) ) ) );
-        if ( is_array($categories_ids) && !empty($categories_ids) && count($categories_ids) > 0 ) {
+        $categories = array();
+        $categories_ids = array_values(array_unique(array_merge(explode(',', $this->default_category), explode(',', $this->categories))));
+        if (is_array($categories_ids) && !empty($categories_ids) && count($categories_ids) > 0) {
             $categories = Category::whereIn('id', $categories_ids)->get();
-            $categorys = ( !empty($categories) && count($categories) > 0 ) ? $categories : array();
+            $categories = (!empty($categories) && count($categories) > 0) ? $categories : array();
         }
-        return $categorys;
+        return $categories;
     }
 
 }

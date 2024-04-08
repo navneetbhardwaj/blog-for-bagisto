@@ -66,7 +66,7 @@ class TaxCategory
      * @var array
      */
     private $rates;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

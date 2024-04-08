@@ -86,7 +86,7 @@ class Attribute
      *     type="array",
      *     @OA\Items(ref="#/components/schemas/AttributeOption")
      * )
-     * 
+     *
      * @var array
      */
     private $options;
@@ -233,7 +233,7 @@ class Attribute
      * @var integer
      */
     private $value_per_channel;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

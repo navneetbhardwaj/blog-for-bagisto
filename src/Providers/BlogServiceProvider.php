@@ -15,7 +15,6 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
         $this->loadRoutesFrom(__DIR__ . '/../Routes/admin-routes.php');
@@ -33,9 +32,8 @@ class BlogServiceProvider extends ServiceProvider
         ], ['webbycrown-blog-api-swagger']);
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'blog');
-
     }
-    
+
     /**
      * Register services.
      *
@@ -45,7 +43,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
     }
-    
+
     /**
      * Register package config.
      *
@@ -53,18 +51,14 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected function registerConfig()
     {
-
-        // $this->mergeConfigFrom(
-        //     dirname(__DIR__) . '/Config/l5-swagger.php', 'bagisto-rest-api-swagger'
-        // );
-
         $this->mergeConfigFrom(
-            dirname(__DIR__) . '/Config/menu.php', 'menu.admin'
+            dirname(__DIR__) . '/Config/menu.php',
+            'menu.admin'
         );
 
         $this->mergeConfigFrom(
-            dirname(__DIR__) . '/Config/acl.php', 'acl'
+            dirname(__DIR__) . '/Config/acl.php',
+            'acl'
         );
-
     }
 }

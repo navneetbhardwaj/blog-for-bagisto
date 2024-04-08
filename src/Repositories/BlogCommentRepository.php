@@ -12,7 +12,7 @@ class BlogCommentRepository extends Repository
      *
      * @return mixed
      */
-    function model()
+    public function model()
     {
         return 'Webbycrown\BlogBagisto\Models\Comment';
     }

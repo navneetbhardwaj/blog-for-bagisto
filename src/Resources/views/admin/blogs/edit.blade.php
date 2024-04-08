@@ -2,19 +2,7 @@
     <x-slot:title>
         @lang('blog::app.blog.edit-title')
     </x-slot:title>
-
-    @pushOnce('styles')
-
-        <style type="text/css">
-            
-            .v-tree-container>.v-tree-item:not(.has-children) {
-                padding-left: 18px !important;
-            }
-            
-        </style>
-
-    @endPushOnce
-
+   
     @php
         $currentLocale = core()->getRequestedLocale();
     @endphp
@@ -28,7 +16,7 @@
 
         {!! view_render_event('admin.blogs.edit.before') !!}
 
-        <div class="flex gap-4 justify-between items-center max-sm:flex-wrap">
+        <div class="flex justify-between items-center">
             <p class="text-xl text-gray-800 dark:text-white font-bold">
                 @lang('blog::app.blog.edit-title')
             </p>
@@ -53,10 +41,10 @@
         </div>
 
         <!-- Full Pannel -->
-        <div class="flex gap-[10px] mt-[14px] max-xl:flex-wrap">
+        <div class="flex gap-2.5 mt-3.5">
 
             <!-- Left Section -->
-            <div class="flex flex-col gap-[8px] flex-1 max-xl:flex-auto">
+            <div class="flex flex-col gap-2 flex-1 overflow-auto">
 
                 <!-- General -->
                 <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
@@ -81,7 +69,7 @@
                     </x-admin::form.control-group.control>
 
                     <!-- Name -->
-                    <x-admin::form.control-group class="mb-2.5">
+                    <x-admin::form.control-group>
                         <x-admin::form.control-group.label class="required">
                             @lang('blog::app.blog.name')
                         </x-admin::form.control-group.label>
@@ -113,7 +101,7 @@
                     </x-admin::form.control-group>
 
                     <!-- Slug -->
-                    <x-admin::form.control-group class="mb-2.5">
+                    <x-admin::form.control-group>
                         <x-admin::form.control-group.label class="required">
                             @lang('admin::app.catalog.categories.create.slug')
                         </x-admin::form.control-group.label>
@@ -147,13 +135,13 @@
                 </div>
 
                 <!-- Description and images -->
-                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
+                <div class="p-4 bg-white dark:bg-gray-900 box-shadow rounded">
                     <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold">
                         @lang('blog::app.blog.description-and-images')
                     </p>
 
                     <!-- Meta Description -->
-                    <x-admin::form.control-group class="mb-2.5">
+                    <x-admin::form.control-group>
                         <x-admin::form.control-group.label class="required">
                             @lang('blog::app.blog.short_description')
                         </x-admin::form.control-group.label>
@@ -175,7 +163,7 @@
 
                     <!-- Description -->
                     <v-description>
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
                             <x-admin::form.control-group.label class="required">
                                 @lang('blog::app.blog.description')
                             </x-admin::form.control-group.label>
@@ -211,17 +199,14 @@
                                 name="src" 
                                 :uploaded-images="$blog->src ? [['id' => 'src', 'url' => $blog->src_url]] : []"
                             >
-                                
                             </x-admin::media.images>
-
                         </div>
-
                     </div>
                 </div>
 
                 <!-- SEO Deatils -->
-                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
-                    <p class="text-base text-gray-800 dark:text-white font-semibold mb-4">
+                <div class="p-4 bg-white dark:bg-gray-900 box-shadow rounded">
+                    <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold ">
                         @lang('blog::app.blog.search_engine_optimization')
                     </p>
 
@@ -231,7 +216,7 @@
 
                     <div class="mt-8">
                         <!-- Meta Title -->
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
                             <x-admin::form.control-group.label class="required">
                                 @lang('blog::app.blog.meta_title')
                             </x-admin::form.control-group.label>
@@ -252,7 +237,7 @@
                         </x-admin::form.control-group>
 
                         <!-- Meta Keywords -->
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
                             <x-admin::form.control-group.label class="required">
                                 @lang('blog::app.blog.meta_keywords')
                             </x-admin::form.control-group.label>
@@ -272,7 +257,7 @@
                         </x-admin::form.control-group>
 
                         <!-- Meta Description -->
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
                             <x-admin::form.control-group.label class="required">
                                 @lang('blog::app.blog.meta_description')
                             </x-admin::form.control-group.label>
@@ -297,21 +282,20 @@
             </div>
 
             <!-- Right Section -->
-            <div class="flex flex-col gap-[8px] w-[360px] max-w-full">
+            <div class="flex flex-col gap-2 w-[360px] max-w-full">
                 <!-- Settings -->
 
                 <x-admin::accordion>
                     <x-slot:header>
-                        <p class="p-[10px] text-gray-600 dark:text-gray-300 text-[16px] font-semibold">
+                        <p class="p-2.5 text-base text-gray-800 dark:text-white font-semibold">
                             @lang('admin::app.catalog.categories.create.settings')
                         </p>
                     </x-slot:header>
 
                     <x-slot:content>
-
                         <!-- Published At -->
-                        <x-admin::form.control-group class="w-full mb-2.5">
-                            <x-admin::form.control-group.label class="required">
+                        <x-admin::form.control-group>
+                            <x-admin::form.control-group.label class="required text-gray-800 dark:text-white">
                                 @lang('blog::app.blog.published_at')
                             </x-admin::form.control-group.label>
 
@@ -335,7 +319,7 @@
                         <!-- Status -->
                         <input type="hidden" name="status" id="status" value="@php echo $blog->status @endphp">
                         <x-admin::form.control-group>
-                            <x-admin::form.control-group.label class="text-gray-800 dark:text-white font-medium">
+                            <x-admin::form.control-group.label class="required text-gray-800 dark:text-white font-medium">
                                 @lang('blog::app.blog.status')
                             </x-admin::form.control-group.label>
 
@@ -383,7 +367,7 @@
 
                         @endphp
 
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
                             <x-admin::form.control-group.label class="required text-gray-800 dark:text-white font-medium required">
                                 @lang('blog::app.blog.author')
                             </x-admin::form.control-group.label>
@@ -400,6 +384,11 @@
                                     :placeholder="trans('blog::app.blog.author')"
                                 >
                                 </x-admin::form.control-group.control>
+
+                                <x-admin::form.control-group.error
+                                    control-name="author"
+                                >
+                                </x-admin::form.control-group.error>
                             @else
                                 <x-admin::form.control-group.control
                                     type="select"
@@ -419,7 +408,7 @@
                                 </x-admin::form.control-group.control>
 
                                 <x-admin::form.control-group.error
-                                    control-name="author"
+                                    control-name="author_id"
                                 >
                                 </x-admin::form.control-group.error>
                             @endif
@@ -431,7 +420,7 @@
                 <!-- Default Categories -->
                 <x-admin::accordion>
                     <x-slot:header>
-                        <p class="required p-[10px] text-gray-600 dark:text-gray-300 text-[16px] font-semibold">
+                        <p class="required p-2.5 text-base text-gray-800 dark:text-white font-semibold">
                             {{-- @lang('blog::app.blog.categories_title') --}}
                             Default Category
                         </p>
@@ -440,7 +429,7 @@
                     <x-slot:content>
 
                         <!-- Category -->
-                        <x-admin::form.control-group class="mb-2.5">
+                        <x-admin::form.control-group>
 
                             <x-admin::form.control-group.control
                                 type="select"
@@ -470,7 +459,7 @@
                 <!-- Additional Category -->
                 <x-admin::accordion>
                     <x-slot:header>
-                        <p class="p-[10px] text-gray-600 dark:text-gray-300 text-[16px] font-semibold">
+                        <p class="p-2.5 text-base text-gray-800 dark:text-white font-semibold">
                             {{-- @lang('blog::app.blog.categories_title') --}}
                             Additional Category
                         </p>
@@ -482,11 +471,12 @@
                         <div class="flex flex-col gap-[12px]">
                             <x-admin::tree.view
                                 input-type="checkbox"
-                                name-field="categorys"
+                                selection-type="individual"
+                                name-field="categories"
                                 id-field="id"
                                 value-field="id"
                                 :items="json_encode($additional_categories)"
-                                :value="json_encode(explode(',', $blog->categorys))"
+                                :value="json_encode(explode(',', $blog->categories))"
                                 behavior="no"
                                 :fallback-locale="config('app.fallback_locale')"
                             >
@@ -499,14 +489,14 @@
                 <!-- Tags -->
                 <x-admin::accordion>
                     <x-slot:header>
-                        <p class="required p-[10px] text-gray-600 dark:text-gray-300 text-[16px] font-semibold">
+                        <p class="required p-2.5 text-base text-gray-800 dark:text-white font-semibold">
                             @lang('blog::app.blog.tag_title')
                         </p>
                     </x-slot:header>
 
                     <x-slot:content>
                         @foreach ($tags as $tag)
-                            <x-admin::form.control-group class="flex gap-2.5 !mb-0 p-1.5">
+                        <x-admin::form.control-group class="flex gap-2.5 items-center !mb-2 select-none">
                                 <x-admin::form.control-group.control
                                     type="checkbox"
                                     name="tags[]"
@@ -519,12 +509,11 @@
                                 >
                                 </x-admin::form.control-group.control>
 
-                                <x-admin::form.control-group.label
-                                    :for="$tag->name"
-                                    class="!text-sm !text-gray-600 dark:!text-gray-300 font-semibold cursor-pointer"
+                                <label
+                                    class="text-xs text-gray-600 dark:text-gray-300 font-medium cursor-pointer"
                                 >
                                     {{ $tag->name }}
-                                </x-admin::form.control-group.label>
+                                </label>
                             </x-admin::form.control-group>
                         @endforeach
 

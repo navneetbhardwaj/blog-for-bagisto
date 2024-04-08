@@ -9,12 +9,13 @@ use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Models\Category;
 use Webbycrown\BlogBagisto\Models\Tag;
 use Webkul\Core\Models\CoreConfig;
-use Webkul\Shop\Repositories\ThemeCustomizationRepository;
+use Webkul\Theme\Repositories\ThemeCustomizationRepository;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -26,7 +27,7 @@ class CategoryController extends Controller
     /**
      * Using const variable for status
      */
-    const STATUS = 1;
+    public const STATUS = 1;
 
     /**
      * Create a new controller instance.
@@ -47,17 +48,18 @@ class CategoryController extends Controller
     {
         $category = Category::where('slug', $category_slug)->firstOrFail();
 
-        $category_id = ( $category && isset($category->id) ) ? $category->id : 0;
+        $category_id = ($category && isset($category->id)) ? $category->id : 0;
 
         $paginate = app('Webbycrown\BlogBagisto\Http\Controllers\Shop\BlogController')->getConfigByKey('blog_post_per_page');
-        $paginate = ( isset($paginate) && !empty($paginate) && is_null($paginate) ) ? (int)$paginate : 9;
+        $paginate = (isset($paginate) && !empty($paginate) && is_null($paginate)) ? (int)$paginate : 9;
 
         $blogs = Blog::orderBy('id', 'desc')->where('status', 1)
         ->where(
             function ($query) use ($category_id) {
                 $query->where('default_category', $category_id)
-                ->orWhereRaw('FIND_IN_SET(?, categorys)', [$category_id]);
-            })
+                ->orWhereRaw('FIND_IN_SET(?, categories)', [$category_id]);
+            }
+        )
         ->paginate($paginate);
 
         $categories = Category::where('status', 1)->get();
@@ -79,5 +81,5 @@ class CategoryController extends Controller
 
         return view($this->_config['view'], compact('blogs', 'categories', 'customizations', 'category', 'tags', 'show_categories_count', 'show_tags_count', 'show_author_page', 'blog_seo_meta_title', 'blog_seo_meta_keywords', 'blog_seo_meta_description'));
     }
-    
+
 }

@@ -111,7 +111,7 @@ class TaxRate
      * @var float
      */
     private $tax_rate;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

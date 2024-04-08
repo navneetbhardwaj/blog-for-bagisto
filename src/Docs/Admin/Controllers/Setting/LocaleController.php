@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class LocaleController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/locales",
-	 *      operationId="getSettingLocales",
-	 *      tags={"Locales"},
-	 *      summary="Get admin locale list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/locales",
+     *      operationId="getSettingLocales",
+     *      tags={"Locales"},
+     *      summary="Get admin locale list",
      *      description="Returns locale list, if you want to retrieve all locales at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class LocaleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/locales/{id}",
-	 *      operationId="getSalesLocale",
-	 *      tags={"Locales"},
-	 *      summary="Get admin locale detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/locales/{id}",
+     *      operationId="getSalesLocale",
+     *      tags={"Locales"},
+     *      summary="Get admin locale detail",
      *      description="Returns locale detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class LocaleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -194,7 +194,7 @@ class LocaleController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

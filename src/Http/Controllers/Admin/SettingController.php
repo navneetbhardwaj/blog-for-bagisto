@@ -15,7 +15,9 @@ use Webbycrown\BlogBagisto\Models\Comment;
 
 class SettingController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -53,7 +55,7 @@ class SettingController extends Controller
 
         $setting_deatils = $settings = array();
         $setting_datas = CoreConfig::whereIn('code', $config_data_keys)->get();
-        if ( !empty($setting_datas) && count($setting_datas) > 0 ) {
+        if (!empty($setting_datas) && count($setting_datas) > 0) {
             $setting_datas = $setting_datas->toarray();
             foreach ($setting_datas as $setting_data) {
                 $setting_deatils[ $setting_data['code'] ] = $setting_data['value'];
@@ -61,7 +63,7 @@ class SettingController extends Controller
         }
 
         foreach ($config_data_keys as $config_data_key) {
-            $settings[ $config_data_key ] = ( array_key_exists($config_data_key, $setting_deatils) ) ? $setting_deatils[ $config_data_key ] : '';
+            $settings[ $config_data_key ] = (array_key_exists($config_data_key, $setting_deatils)) ? $setting_deatils[ $config_data_key ] : '';
         }
 
         return view($this->_config['view'], compact('post_orders', 'settings'));
@@ -74,7 +76,7 @@ class SettingController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -85,14 +87,14 @@ class SettingController extends Controller
     public function store()
     {
         $data = request()->all();
-    
+
         $config_except_keys = array( 'switch_blog_post_show_categories_with_count', 'switch_blog_post_show_tags_with_count', 'switch_blog_post_show_author_page', 'switch_blog_post_enable_comment', 'switch_blog_post_allow_guest_comment', 'switch_blog_post_enable_comment_moderation' );
 
-        if ( !empty($data) && count($data) > 0 ) {
-            foreach ( $data as $data_key => $data_value ) {
-                if ( !in_array($data_key, $config_except_keys) ) {
+        if (!empty($data) && count($data) > 0) {
+            foreach ($data as $data_key => $data_value) {
+                if (!in_array($data_key, $config_except_keys)) {
                     $CoreConfig = CoreConfig::where('code', $data_key)->first();
-                    if ( $CoreConfig ) {
+                    if ($CoreConfig) {
                         $CoreConfig->value = $data_value;
                     } else {
                         $CoreConfig = new CoreConfig();
@@ -103,9 +105,10 @@ class SettingController extends Controller
                 }
             }
         }
-        session()->flash('success', 'Save Blog Setting Successfully');
+        
+        session()->flash('success', trans('blog::app.setting.save-success'));
+        
         return redirect()->route($this->_config['redirect']);
-
     }
 
     /**

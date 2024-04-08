@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class CartRuleController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/cart-rules",
-	 *      operationId="getCartRules",
-	 *      tags={"CartRules"},
-	 *      summary="Get admin cart rule list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/cart-rules",
+     *      operationId="getCartRules",
+     *      tags={"CartRules"},
+     *      summary="Get admin cart rule list",
      *      description="Returns cart rule list, if you want to retrieve all cart rules at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class CartRuleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/cart-rules/{id}",
-	 *      operationId="getCartRule",
-	 *      tags={"CartRules"},
-	 *      summary="Get admin cart rule detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/cart-rules/{id}",
+     *      operationId="getCartRule",
+     *      tags={"CartRules"},
+     *      summary="Get admin cart rule detail",
      *      description="Returns cart rule detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class CartRuleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -319,7 +319,7 @@ class CartRuleController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

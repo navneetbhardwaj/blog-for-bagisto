@@ -25,7 +25,7 @@ class BlogTagRequest extends FormRequest
     public function rules()
     {
         $locale = core()->getRequestedLocaleCode();
-        $locale = ( is_array( $locale ) && count( $locale ) > 0 ) ? $locale[0] : 'en';
+        $locale = (is_array($locale) && count($locale) > 0) ? $locale[0] : 'en';
 
         if ($id = request('id')) {
             return [
@@ -39,7 +39,7 @@ class BlogTagRequest extends FormRequest
         }
 
         return [
-            'slug'              => ['required', new BlogTagUniqueSlug],
+            'slug'              => ['required', new BlogTagUniqueSlug()],
             'name'              => 'required',
             'description'       => 'required',
             'meta_title'        => 'required',

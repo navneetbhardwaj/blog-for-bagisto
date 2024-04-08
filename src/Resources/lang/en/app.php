@@ -37,7 +37,12 @@ return [
         'created-fault'                 => 'An error occurred while creating a blog.',
         'updated-fault'                 => 'An error occurred while updating the blog.',
         'delete-success'                => 'Blog deleted successfully',
+        'create-success'                => 'Blog created successfully',
+        'update-success'                => 'Blog updated successfully',
         'delete-failure'                => 'Blog cannot be deleted',
+        'datagrid'                      => [
+            'mass-delete-success'           => 'All the selected blogs have been deleted successfully.',
+        ],
     ],
 
     'category' => [
@@ -61,8 +66,13 @@ return [
         'meta_keywords'                 => 'Meta Keywords',
         'created-fault'                 => 'An error occurred while creating a category.',
         'updated-fault'                 => 'An error occurred while updating the category.',
+        'create-success'                => 'Category created successfully',
+        'update-success'                => 'Category updated successfully',
         'delete-success'                => 'Category deleted successfully',
         'delete-failure'                => 'Category cannot be deleted',
+        'datagrid'                      => [
+            'mass-delete-success'   => 'Selected Categories Deleted Successfully',
+        ],
     ],
 
     'tag' => [
@@ -84,10 +94,16 @@ return [
         'meta_title'                    => 'Meta Title',
         'meta_description'              => 'Meta Description',
         'meta_keywords'                 => 'Meta Keywords',
+        'update-success'                => 'Tag updated successfully',
         'created-fault'                 => 'An error occurred while creating a tag.',
         'updated-fault'                 => 'An error occurred while updating the tag.',
+        'create-success'                => 'Tag created successfully',
         'delete-success'                => 'Tag deleted successfully',
         'delete-failure'                => 'Tag cannot be deleted',
+        'delete-failed'                 => 'Tag Deleted Failed',
+        'datagrid'                      => [
+            'mass-delete-success'   => 'Selected Tags Deleted Successfully',
+        ],
     ],
 
     'comment' => [
@@ -104,8 +120,13 @@ return [
         'status-approved'               => 'Approved',
         'status-rejected'               => 'Rejected',
         'comment'                       => 'Comment',
+        'update-success'                => 'Comment updated successfully',
         'delete-success'                => 'Comment deleted successfully',
         'delete-failure'                => 'Comment cannot be deleted',
+        'delete-failed'                 => 'Comment Deleted Failed',
+        'datagrid'                      => [
+            'mass-delete-success'   => 'Selected Comment Deleted Successfully',
+        ]
     ],
 
     'datagrid' => [
@@ -124,5 +145,10 @@ return [
         'edit'                          => 'Edit',
         'delete'                        => 'Delete',
         'view'                          => 'View',
+    ],
+
+
+    'setting' => [
+        'save-success'      =>  'Save Blog Setting Successfully',
     ],
 ];

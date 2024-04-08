@@ -179,7 +179,7 @@ class MetaData
      * @var string
      */
     private $subscription_bar_content;
-    
+
     /**
      * @OA\Property(
      *     title="Product View Images",
@@ -190,7 +190,7 @@ class MetaData
      * @var string
      */
     private $product_view_images;
-    
+
     /**
      * @OA\Property(
      *     title="Product Policy",
@@ -201,7 +201,7 @@ class MetaData
      * @var string
      */
     private $product_policy;
-    
+
     /**
      * @OA\Property(
      *     title="Locale",
@@ -235,7 +235,7 @@ class MetaData
      * @var integer
      */
     private $header_content_count;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

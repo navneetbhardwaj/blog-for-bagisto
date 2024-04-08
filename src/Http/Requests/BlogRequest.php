@@ -25,7 +25,7 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         $locale = core()->getRequestedLocaleCode();
-        $locale = ( is_array( $locale ) && count( $locale ) > 0 ) ? $locale[0] : 'en';
+        $locale = (is_array($locale) && count($locale) > 0) ? $locale[0] : 'en';
 
         if ($id = request('id')) {
             return [
@@ -45,7 +45,7 @@ class BlogRequest extends FormRequest
         }
 
         return [
-            'slug'              => ['required', new BlogUniqueSlug],
+            'slug'              => ['required', new BlogUniqueSlug()],
             'name'              => 'required',
             'src.*'             => 'mimes:bmp,jpeg,jpg,png,webp',
             'short_description' => 'required',

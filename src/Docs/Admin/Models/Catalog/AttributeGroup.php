@@ -62,11 +62,11 @@ class AttributeGroup
      *     type="array",
      *     @OA\Items(ref="#/components/schemas/Attribute")
      * )
-     * 
+     *
      * @var array
      */
     private $attributes;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

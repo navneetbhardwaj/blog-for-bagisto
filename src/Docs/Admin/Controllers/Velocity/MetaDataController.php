@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Velocity;
 
 class MetaDataController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/velocity/meta-data",
-	 *      operationId="getVelocityMetaData",
-	 *      tags={"Velocity"},
-	 *      summary="Get admin velocity meta data",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/velocity/meta-data",
+     *      operationId="getVelocityMetaData",
+     *      tags={"Velocity"},
+     *      summary="Get admin velocity meta data",
      *      description="Returns velocity meta data",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Response(
@@ -23,11 +23,11 @@ class MetaDataController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function renderMetaData()
-	{
-	}
+     * )
+     */
+    public function renderMetaData()
+    {
+    }
 
     /**
      * @OA\Post(

@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class TaxRateController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/tax-rates",
-	 *      operationId="getTaxRates",
-	 *      tags={"Tax-Rates"},
-	 *      summary="Get admin tax rate list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/tax-rates",
+     *      operationId="getTaxRates",
+     *      tags={"Tax-Rates"},
+     *      summary="Get admin tax rate list",
      *      description="Returns tax rate list, if you want to retrieve all tax rates at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class TaxRateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/tax-rates/{id}",
-	 *      operationId="getTaxRate",
-	 *      tags={"Tax-Rates"},
-	 *      summary="Get admin tax rate detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/tax-rates/{id}",
+     *      operationId="getTaxRate",
+     *      tags={"Tax-Rates"},
+     *      summary="Get admin tax rate detail",
      *      description="Returns tax rate detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class TaxRateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -215,7 +215,7 @@ class TaxRateController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="identifier",

@@ -6,6 +6,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Session;
 use Webbycrown\BlogBagisto\Datagrids\CategoryDataGrid;
 use Webbycrown\BlogBagisto\Repositories\BlogCategoryRepository;
@@ -14,10 +16,13 @@ use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Models\Category;
 use Webbycrown\BlogBagisto\Models\Tag;
 use Webbycrown\BlogBagisto\Models\Comment;
+use Webkul\Admin\Http\Requests\MassDestroyRequest;
 
 class CategoryController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -61,7 +66,7 @@ class CategoryController extends Controller
     {
         $locale = core()->getRequestedLocaleCode();
 
-        $categories = Category::whereNull('parent_id')->where('status', 1)->get();
+        $categories = Category::where('parent_id', 0)->where('status', 1)->get();
 
         return view($this->_config['view'], compact('categories'))->with('locale', $locale);
     }
@@ -89,7 +94,7 @@ class CategoryController extends Controller
         $result = $this->blogCategoryRepository->save($data);
 
         if ($result) {
-            session()->flash('success', trans('admin::app.catalog.categories.create-success', ['name' => 'Category']));
+            session()->flash('success', trans('blog::app.category.create-success'));
         } else {
             session()->flash('success', trans('blog::app.category.created-fault'));
         }
@@ -109,8 +114,8 @@ class CategoryController extends Controller
 
         Session::put('bCatEditId', $id);
 
-        $categories_data = Category::whereNull('parent_id')->where('status', 1)->where('id', '!=', $id)->get();
-        
+        $categories_data = Category::where('parent_id', 0)->where('status', 1)->where('id', '!=', $id)->get();
+
         Session::remove('bCatEditId');
 
         return view($this->_config['view'], compact('categories', 'categories_data'));
@@ -146,7 +151,7 @@ class CategoryController extends Controller
         $result = $this->blogCategoryRepository->updateItem($data, $id);
 
         if ($result) {
-            session()->flash('success', trans('admin::app.catalog.categories.update-success', ['name' => 'Category']));
+            session()->flash('success', trans('blog::app.category.update-success'));
         } else {
             session()->flash('error', trans('blog::app.category.updated-fault'));
         }
@@ -167,48 +172,31 @@ class CategoryController extends Controller
         try {
             $this->blogCategoryRepository->delete($id);
 
-            return response()->json(['message' => trans('admin::app.catalog.categories.delete-success', ['name' => 'Category'])]);
+            return response()->json(['message' => trans('blog::app.category.delete-success')]);
         } catch (\Exception $e) {
             report($e);
         }
 
-        return response()->json(['message' => trans('admin::app.catalog.categories.delete-failed', ['name' => 'Category'])], 500);
+        return response()->json(['message' => trans('blog::app.category.delete-failure')], 500);
     }
 
     /**
      * Remove the specified resources from database.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function massDestroy()
+    public function massDestroy(MassDestroyRequest $massDestroyRequest): JsonResponse
     {
-        $suppressFlash = false;
+        $indices = $massDestroyRequest->input('indices');
 
-        if (request()->isMethod('post')) {
-            // $indexes = explode(',', request()->input('indices'));
-            $indexes = (array)request()->input('indices');
+        foreach ($indices as $index) {
+            Event::dispatch('catalog.blog.delete.before', $index);
 
-            foreach ($indexes as $key => $value) {
-                try {
-                    $this->blogCategoryRepository->delete($value);
-                } catch (\Exception $e) {
-                    $suppressFlash = true;
+            $this->blogCategoryRepository->delete($index);
 
-                    continue;
-                }
-            }
-
-            if (! $suppressFlash) {
-                session()->flash('success', trans('admin::app.catalog.categories.delete-success', ['resource' => 'Category']));
-            } else {
-                session()->flash('info', trans('admin::app.catalog.categories.delete-failed', ['resource' => 'Category']));
-            }
-
-            return redirect()->back();
-        } else {
-            session()->flash('error', trans('admin::app.catalog.categories.delete-failed'));
-
-            return redirect()->back();
+            Event::dispatch('catalog.blog.delete.after', $index);
         }
+
+        return new JsonResponse([
+            'message' => trans('blog::app.category.datagrid.mass-delete-success'),
+        ]);
     }
 }

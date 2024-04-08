@@ -83,7 +83,7 @@ class Transaction
      * @var string
      */
     private $data;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",
@@ -96,7 +96,7 @@ class Transaction
      * @var \DateTime
      */
     private $created_at;
-    
+
     /**
      * @OA\Property(
      *     title="Updated at",

@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class CampaignController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/campaigns",
-	 *      operationId="getCampaigns",
-	 *      tags={"Campaigns"},
-	 *      summary="Get admin campaign list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/campaigns",
+     *      operationId="getCampaigns",
+     *      tags={"Campaigns"},
+     *      summary="Get admin campaign list",
      *      description="Returns campaign list, if you want to retrieve all campaigns at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class CampaignController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/campaigns/{id}",
-	 *      operationId="getCampaign",
-	 *      tags={"Campaigns"},
-	 *      summary="Get admin campaign detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/campaigns/{id}",
+     *      operationId="getCampaign",
+     *      tags={"Campaigns"},
+     *      summary="Get admin campaign detail",
      *      description="Returns campaign detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class CampaignController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -209,7 +209,7 @@ class CampaignController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

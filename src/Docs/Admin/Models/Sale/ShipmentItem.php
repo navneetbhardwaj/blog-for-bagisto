@@ -43,7 +43,7 @@ class ShipmentItem
      * @var string
      */
     private $description;
-    
+
     /**
      * @OA\Property(
      *     title="SKU",

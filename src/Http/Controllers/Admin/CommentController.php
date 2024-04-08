@@ -6,6 +6,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Event;
 use Webbycrown\BlogBagisto\Datagrids\CommentDataGrid;
 use Webbycrown\BlogBagisto\Repositories\BlogCommentRepository;
 use Webkul\User\Models\Admin;
@@ -13,10 +15,13 @@ use Webbycrown\BlogBagisto\Models\Category;
 use Webbycrown\BlogBagisto\Models\Tag;
 use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Models\Comment;
+use Webkul\Admin\Http\Requests\MassDestroyRequest;
 
 class CommentController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -82,11 +87,11 @@ class CommentController extends Controller
         $comment = $this->blogCommentRepository->findOrFail($id);
 
         $loggedIn_user = auth()->guard('admin')->user()->toarray();
-        $user_id = ( array_key_exists('id', $loggedIn_user) ) ? $loggedIn_user['id'] : 0;
-        $role = ( array_key_exists('role', $loggedIn_user) ) ? ( array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator' ) : 'Administrator';
-        if ( $role != 'Administrator' ) {
+        $user_id = (array_key_exists('id', $loggedIn_user)) ? $loggedIn_user['id'] : 0;
+        $role = (array_key_exists('role', $loggedIn_user)) ? (array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator') : 'Administrator';
+        if ($role != 'Administrator') {
             $blogs = Blog::where('author_id', $user_id)->get();
-            $post_ids = ( !empty($blogs) && count($blogs) > 0 ) ? $blogs->pluck('id')->toarray() : array();
+            $post_ids = (!empty($blogs) && count($blogs) > 0) ? $blogs->pluck('id')->toarray() : array();
             $check_comment = Comment::where('id', $id)->whereIn('post', $post_ids)->first();
             if (!$check_comment) {
                 return redirect()->route('admin.blog.comment.index');
@@ -95,7 +100,7 @@ class CommentController extends Controller
 
         $author_name = '';
         $author_id = $comment && isset($comment->author) ? $comment->author : 0;
-        if ( (int)$author_id > 0 ) {
+        if ((int)$author_id > 0) {
             $author_data = Admin::find($author_id);
             $author_name = $author_data && isset($author_data->name) ? $author_data->name : '';
         }
@@ -122,7 +127,7 @@ class CommentController extends Controller
         $result = $this->blogCommentRepository->updateItem($data, $id);
 
         if ($result) {
-            session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Comment']));
+            session()->flash('success', trans('blog::app.comment.update-success'));
         } else {
             session()->flash('error', trans('blog::app.comment.updated-fault'));
         }
@@ -143,48 +148,31 @@ class CommentController extends Controller
         try {
             $this->blogCommentRepository->delete($id);
 
-            return response()->json(['message' => trans('admin::app.response.delete-success', ['name' => 'Comment'])]);
+            return response()->json(['message' => trans('blog::app.blog.delete-success')]);
         } catch (\Exception $e) {
             report($e);
         }
 
-        return response()->json(['message' => trans('admin::app.response.delete-failed', ['name' => 'Comment'])], 500);
+        return response()->json(['message' => trans('blog::app.blog.delete-failed')], 500);
     }
 
     /**
      * Remove the specified resources from database.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function massDestroy()
+    public function massDestroy(MassDestroyRequest $massDestroyRequest): JsonResponse
     {
-        $suppressFlash = false;
+        $indices = $massDestroyRequest->input('indices');
 
-        if (request()->isMethod('post')) {
-            // $indexes = explode(',', request()->input('indexes'));
-            $indexes = (array)request()->input('indices');
+        foreach ($indices as $index) {
+            Event::dispatch('catalog.blog.delete.before', $index);
 
-            foreach ($indexes as $key => $value) {
-                try {
-                    $this->blogCommentRepository->delete($value);
-                } catch (\Exception $e) {
-                    $suppressFlash = true;
+            $this->blogCommentRepository->delete($index);
 
-                    continue;
-                }
-            }
-
-            if (! $suppressFlash) {
-                session()->flash('success', trans('admin::app.datagrid.mass-ops.delete-success', ['resource' => 'Comment']));
-            } else {
-                session()->flash('info', trans('admin::app.datagrid.mass-ops.partial-action', ['resource' => 'Comment']));
-            }
-
-            return redirect()->back();
-        } else {
-            session()->flash('error', trans('admin::app.datagrid.mass-ops.method-error'));
-
-            return redirect()->back();
+            Event::dispatch('catalog.blog.delete.after', $index);
         }
+
+        return new JsonResponse([
+            'message' => trans('blog::app.blog.datagrid.mass-delete-success'),
+        ]);
     }
 }

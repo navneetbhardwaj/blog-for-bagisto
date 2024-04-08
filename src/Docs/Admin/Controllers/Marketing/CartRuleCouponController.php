@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class CartRuleCouponController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/cart-rules/{cart_rule_id}/coupons",
-	 *      operationId="getCartRuleCoupons",
-	 *      tags={"CartRuleCoupons"},
-	 *      summary="Get admin cart rule's coupon list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/cart-rules/{cart_rule_id}/coupons",
+     *      operationId="getCartRuleCoupons",
+     *      tags={"CartRuleCoupons"},
+     *      summary="Get admin cart rule's coupon list",
      *      description="Returns cart rule's coupon list",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -36,18 +36,18 @@ class CartRuleCouponController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/cart-rules/{cart_rule_id}/coupons/{id}",
-	 *      operationId="getCartRuleCoupon",
-	 *      tags={"CartRuleCoupons"},
-	 *      summary="Get admin cart rule's coupon detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/cart-rules/{cart_rule_id}/coupons/{id}",
+     *      operationId="getCartRuleCoupon",
+     *      tags={"CartRuleCoupons"},
+     *      summary="Get admin cart rule's coupon detail",
      *      description="Returns cart rule's coupon detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -79,11 +79,11 @@ class CartRuleCouponController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function show()
-	{
-	}
+     * )
+     */
+    public function show()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -221,7 +221,7 @@ class CartRuleCouponController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

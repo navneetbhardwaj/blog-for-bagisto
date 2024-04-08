@@ -15,7 +15,9 @@ use Webbycrown\BlogBagisto\Http\Requests\BlogRequest;
 
 class BlogController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -150,7 +152,7 @@ class BlogController extends Controller
         if (is_array($data['locale'])) {
             $data['locale'] = implode(',', $data['locale']);
         }
-        
+
         if (is_array($data['tags'])) {
             $data['tags'] = implode(',', $data['tags']);
         }

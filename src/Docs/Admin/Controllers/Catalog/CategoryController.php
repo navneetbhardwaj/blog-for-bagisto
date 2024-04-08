@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Catalog;
 
 class CategoryController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/categories",
-	 *      operationId="getAdminCategories",
-	 *      tags={"Categories"},
-	 *      summary="Get category list for the shop",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/categories",
+     *      operationId="getAdminCategories",
+     *      tags={"Categories"},
+     *      summary="Get category list for the shop",
      *      description="Returns category list, if you want to retrieve all categories at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -69,18 +69,18 @@ class CategoryController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/categories/{id}",
-	 *      operationId="getCategory",
-	 *      tags={"Categories"},
-	 *      summary="Get admin category detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/categories/{id}",
+     *      operationId="getCategory",
+     *      tags={"Categories"},
+     *      summary="Get admin category detail",
      *      description="Returns category detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -103,11 +103,11 @@ class CategoryController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -251,7 +251,7 @@ class CategoryController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="en",
@@ -382,7 +382,7 @@ class CategoryController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

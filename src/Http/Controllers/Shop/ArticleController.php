@@ -7,11 +7,12 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Models\Category;
-use Webkul\Shop\Repositories\ThemeCustomizationRepository;
+use Webkul\Theme\Repositories\ThemeCustomizationRepository;
 
 class ArticleController extends Controller
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -23,7 +24,7 @@ class ArticleController extends Controller
     /**
      * Using const variable for status
      */
-    const STATUS = 1;
+    public const STATUS = 1;
 
     /**
      * Create a new controller instance.

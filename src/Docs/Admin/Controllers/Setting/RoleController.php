@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class RoleController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/roles",
-	 *      operationId="getRoles",
-	 *      tags={"Roles"},
-	 *      summary="Get admin role list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/roles",
+     *      operationId="getRoles",
+     *      tags={"Roles"},
+     *      summary="Get admin role list",
      *      description="Returns role list, if you want to retrieve all roles at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class RoleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/roles/{id}",
-	 *      operationId="getRole",
-	 *      tags={"Roles"},
-	 *      summary="Get admin role detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/roles/{id}",
+     *      operationId="getRole",
+     *      tags={"Roles"},
+     *      summary="Get admin role detail",
      *      description="Returns role detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class RoleController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -189,7 +189,7 @@ class RoleController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

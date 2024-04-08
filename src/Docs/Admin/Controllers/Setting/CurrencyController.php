@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class CurrencyController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/currencies",
-	 *      operationId="getSettingCurrencies",
-	 *      tags={"Currencies"},
-	 *      summary="Get admin currency list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/currencies",
+     *      operationId="getSettingCurrencies",
+     *      tags={"Currencies"},
+     *      summary="Get admin currency list",
      *      description="Returns currency list, if you want to retrieve all currencies at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class CurrencyController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/currencies/{id}",
-	 *      operationId="getSalesCurrency",
-	 *      tags={"Currencies"},
-	 *      summary="Get admin currency detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/currencies/{id}",
+     *      operationId="getSalesCurrency",
+     *      tags={"Currencies"},
+     *      summary="Get admin currency detail",
      *      description="Returns currency detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class CurrencyController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -191,7 +191,7 @@ class CurrencyController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

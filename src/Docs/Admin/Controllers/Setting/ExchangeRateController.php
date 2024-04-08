@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class ExchangeRateController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/exchange-rates",
-	 *      operationId="getSettingExchangeRates",
-	 *      tags={"Exchange-Rates"},
-	 *      summary="Get admin exchange rate list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/exchange-rates",
+     *      operationId="getSettingExchangeRates",
+     *      tags={"Exchange-Rates"},
+     *      summary="Get admin exchange rate list",
      *      description="Returns exchange rate list, if you want to retrieve all exchange rates at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class ExchangeRateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/exchange-rates/{id}",
-	 *      operationId="getSalesExchangeRates",
-	 *      tags={"Exchange-Rates"},
-	 *      summary="Get admin exchange rate detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/exchange-rates/{id}",
+     *      operationId="getSalesExchangeRates",
+     *      tags={"Exchange-Rates"},
+     *      summary="Get admin exchange rate detail",
      *      description="Returns exchange rate detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class ExchangeRateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -184,7 +184,7 @@ class ExchangeRateController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="target_currency",

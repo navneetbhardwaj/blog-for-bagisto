@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Catalog;
 
 class AttributeFamilyController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/attribute-families",
-	 *      operationId="getAdminAttributeFamilies",
-	 *      tags={"Attribute-Families"},
-	 *      summary="Get attribute family list for the shop",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/attribute-families",
+     *      operationId="getAdminAttributeFamilies",
+     *      tags={"Attribute-Families"},
+     *      summary="Get attribute family list for the shop",
      *      description="Returns attribute family list, if you want to retrieve all attribute families at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -69,18 +69,18 @@ class AttributeFamilyController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/attribute-families/{id}",
-	 *      operationId="getAttributeFamily",
-	 *      tags={"Attribute-Families"},
-	 *      summary="Get admin attribute family detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/attribute-families/{id}",
+     *      operationId="getAttributeFamily",
+     *      tags={"Attribute-Families"},
+     *      summary="Get admin attribute family detail",
      *      description="Returns attribute family detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -103,11 +103,11 @@ class AttributeFamilyController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -203,7 +203,7 @@ class AttributeFamilyController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

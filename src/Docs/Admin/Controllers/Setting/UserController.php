@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class UserController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/users",
-	 *      operationId="getUsers",
-	 *      tags={"Users"},
-	 *      summary="Get admin users list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/users",
+     *      operationId="getUsers",
+     *      tags={"Users"},
+     *      summary="Get admin users list",
      *      description="Returns user list, if you want to retrieve all users at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class UserController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/users/{id}",
-	 *      operationId="getUser",
-	 *      tags={"Users"},
-	 *      summary="Get admin user detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/users/{id}",
+     *      operationId="getUser",
+     *      tags={"Users"},
+     *      summary="Get admin user detail",
      *      description="Returns user detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class UserController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -205,7 +205,7 @@ class UserController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="multipart/form-data",
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="_method",

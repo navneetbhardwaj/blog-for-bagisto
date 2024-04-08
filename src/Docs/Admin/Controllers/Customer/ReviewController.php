@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Customer;
 
 class ReviewController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/reviews",
-	 *      operationId="getCustomerReviews",
-	 *      tags={"CustomerReviews"},
-	 *      summary="Get admin customer review list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/reviews",
+     *      operationId="getCustomerReviews",
+     *      tags={"CustomerReviews"},
+     *      summary="Get admin customer review list",
      *      description="Returns customer review list, if you want to retrieve all customer reviews at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class ReviewController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/reviews/{id}",
-	 *      operationId="getCustomerReview",
-	 *      tags={"CustomerReviews"},
-	 *      summary="Get admin customer review detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/reviews/{id}",
+     *      operationId="getCustomerReview",
+     *      tags={"CustomerReviews"},
+     *      summary="Get admin customer review detail",
      *      description="Returns customer review detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class ReviewController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Put(
@@ -132,7 +132,7 @@ class ReviewController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="status",
@@ -210,7 +210,7 @@ class ReviewController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",
@@ -249,7 +249,7 @@ class ReviewController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

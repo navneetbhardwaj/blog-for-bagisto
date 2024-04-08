@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Catalog;
 
 class AttributeController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/attributes",
-	 *      operationId="getAdminAttributes",
-	 *      tags={"Attributes"},
-	 *      summary="Get attribute list for the shop",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/attributes",
+     *      operationId="getAdminAttributes",
+     *      tags={"Attributes"},
+     *      summary="Get attribute list for the shop",
      *      description="Returns attribute list, if you want to retrieve all attributes at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -69,18 +69,18 @@ class AttributeController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/attributes/{id}",
-	 *      operationId="getAttribute",
-	 *      tags={"Attributes"},
-	 *      summary="Get admin attribute detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/attributes/{id}",
+     *      operationId="getAttribute",
+     *      tags={"Attributes"},
+     *      summary="Get admin attribute detail",
      *      description="Returns attribute detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -103,11 +103,11 @@ class AttributeController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -319,7 +319,7 @@ class AttributeController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",
@@ -535,7 +535,7 @@ class AttributeController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

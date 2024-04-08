@@ -53,7 +53,7 @@ class ProductFlat
      * @var string
      */
     private $url_key;
-    
+
     /**
      * @OA\Property(
      *     title="Tax Category ID",
@@ -238,7 +238,7 @@ class ProductFlat
      * @var float
      */
     private $special_price;
-    
+
     /**
      * @OA\Property(
      *     title="Special Price From",
@@ -251,7 +251,7 @@ class ProductFlat
      * @var \Date
      */
     private $special_price_from;
-    
+
     /**
      * @OA\Property(
      *     title="Special Price To",

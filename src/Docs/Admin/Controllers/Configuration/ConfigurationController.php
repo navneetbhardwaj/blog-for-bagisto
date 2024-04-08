@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Configuration;
 
 class ConfigurationController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/configuration",
-	 *      operationId="getConfigurations",
-	 *      tags={"Configurations"},
-	 *      summary="Get admin configuration's item list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/configuration",
+     *      operationId="getConfigurations",
+     *      tags={"Configurations"},
+     *      summary="Get admin configuration's item list",
      *      description="Returns configuration's item list",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Response(
@@ -23,11 +23,11 @@ class ConfigurationController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
     /**
      * @OA\Post(

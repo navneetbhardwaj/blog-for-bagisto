@@ -50,71 +50,82 @@ class BlogDataGrid extends DataGrid
 
     public function prepareQueryBuilder()
     {
-        // $queryBuilder = DB::table('blogs')
-        //     ->select('blogs.id','blogs.name', 'blogs.slug', 'blogs.short_description', 'blogs.description', 'blogs.channels',
-        //         'blogs.default_category', 'blogs.categorys', 'blogs.published_at',
-        //         'category.name as category_name', 'blogs.author',
-        //         'blogs.tags', 'blogs.src', 'blogs.status', 'blogs.allow_comments', 'blogs.published_at',
-        //         'blogs.meta_title', 'blogs.meta_description', 'blogs.meta_keywords')
-        //     ->leftJoin('blog_categories as category', 'blogs.default_category', '=', 'category.id');
-
-        // return $queryBuilder;
-
         $loggedIn_user = auth()->guard('admin')->user()->toarray();
-        $user_id = ( array_key_exists('id', $loggedIn_user) ) ? $loggedIn_user['id'] : 0;
-        $role = ( array_key_exists('role', $loggedIn_user) ) ? ( array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator' ) : 'Administrator';
+        $user_id = (array_key_exists('id', $loggedIn_user)) ? $loggedIn_user['id'] : 0;
+        $role = (array_key_exists('role', $loggedIn_user)) ? (array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator') : 'Administrator';
 
         $queryBuilder = DB::table('blogs');
 
-            if ( $role != 'Administrator' ) {
-                $queryBuilder->where('blogs.author_id', $user_id);
-            }
-            
-            $queryBuilder->select('blogs.id','blogs.name', 'blogs.slug', 'blogs.short_description', 'blogs.description', 'blogs.channels',
-                'blogs.default_category', 'blogs.categorys', 'blogs.published_at','blogs.author',
-                'blogs.tags', 'blogs.src', 'blogs.status', 'blogs.allow_comments', 'blogs.published_at',
-                'blogs.meta_title', 'blogs.meta_description', 'blogs.meta_keywords');
+        if ($role != 'Administrator') {
+            $queryBuilder->where('blogs.author_id', $user_id);
+        }
+
+        $queryBuilder->select(
+            'blogs.id',
+            'blogs.name',
+            'blogs.slug',
+            'blogs.short_description',
+            'blogs.description',
+            'blogs.channels',
+            'blogs.default_category',
+            'blogs.categories',
+            'blogs.published_at',
+            'blogs.author',
+            'blogs.tags',
+            'blogs.src',
+            'blogs.status',
+            'blogs.allow_comments',
+            'blogs.published_at',
+            'blogs.meta_title',
+            'blogs.meta_description',
+            'blogs.meta_keywords'
+        );
 
         return $queryBuilder;
-
     }
 
+    /**
+     * Prepare columns
+     *
+     * @return void
+     */
     public function prepareColumns()
     {
         $this->addColumn([
-            'index' => 'id',
-            'label' => trans('blog::app.datagrid.id'),
-            'type' => 'integer',
+            'index'      => 'id',
+            'label'      => trans('blog::app.datagrid.id'),
+            'type'       => 'integer',
             'searchable' => false,
-            'sortable' => true,
+            'sortable'   => true,
             'filterable' => true,
         ]);
 
         $this->addColumn([
-            'index' => 'name',
-            'label' => trans('blog::app.datagrid.name'),
-            'type' => 'string',
+            'index'      => 'name',
+            'label'      => trans('blog::app.datagrid.name'),
+            'type'       => 'string',
             'searchable' => true,
-            'sortable' => true,
+            'sortable'   => true,
             'filterable' => true,
         ]);
 
         $this->addColumn([
-            'index' => 'default_category',
-            'label' => trans('blog::app.datagrid.category'),
-            'type' => 'string',
+            'index'      => 'default_category',
+            'label'      => trans('blog::app.datagrid.category'),
+            'type'       => 'string',
             'searchable' => true,
-            'sortable' => true,
+            'sortable'   => true,
             'filterable' => true,
-            'closure' => function ($value) {
-                $categorys = '-';
-                $categories_ids = array_values( array_unique( array_merge( explode( ',', $value->default_category ), explode( ',', $value->categorys ) ) ) );
-                if ( is_array($categories_ids) && !empty($categories_ids) && count($categories_ids) > 0 ) {
+            'closure'    => function ($value) {
+                $categories = '-';
+                $categories_ids = array_values(array_unique(array_merge(explode(',', $value->default_category), explode(',', $value->categories))));
+                if (is_array($categories_ids) && !empty($categories_ids) && count($categories_ids) > 0) {
                     $categories = Category::whereIn('id', $categories_ids)->get();
-                    $categories_names = ( !empty($categories) && count($categories) > 0 ) ? $categories->pluck('name')->toarray() : array();
-                    $categorys = ( !empty($categories_names) && count($categories_names) ) ? implode(', ', $categories_names) : '-';
+                    $categories_names = (!empty($categories) && count($categories) > 0) ? $categories->pluck('name')->toarray() : array();
+                    $categories = (!empty($categories_names) && count($categories_names)) ? implode(', ', $categories_names) : '-';
                 }
-                return $categorys;
+
+                return $categories;
             },
         ]);
 
@@ -127,12 +138,13 @@ class BlogDataGrid extends DataGrid
             'filterable' => true,
             'closure' => function ($value) {
                 $tags = '-';
-                $tags_ids = array_values( array_unique( explode( ',', $value->tags ) ) );
-                if ( is_array($tags_ids) && !empty($tags_ids) && count($tags_ids) > 0 ) {
+                $tags_ids = array_values(array_unique(explode(',', $value->tags)));
+                if (is_array($tags_ids) && !empty($tags_ids) && count($tags_ids) > 0) {
                     $tag_deatils = Tag::whereIn('id', $tags_ids)->get();
-                    $tags_names = ( !empty($tag_deatils) && count($tag_deatils) > 0 ) ? $tag_deatils->pluck('name')->toarray() : array();
-                    $tags = ( !empty($tags_names) && count($tags_names) ) ? implode(', ', $tags_names) : '-';
+                    $tags_names = (!empty($tag_deatils) && count($tag_deatils) > 0) ? $tag_deatils->pluck('name')->toarray() : array();
+                    $tags = (!empty($tags_names) && count($tags_names)) ? implode(', ', $tags_names) : '-';
                 }
+
                 return $tags;
             },
         ]);
@@ -177,8 +189,8 @@ class BlogDataGrid extends DataGrid
             'sortable' => true,
             'filterable' => true,
             'closure' => function ($value) {
-                if ( $value->published_at != '' && $value->published_at != null ) {
-                    return date_format( date_create($value->published_at), 'j F, Y' );
+                if ($value->published_at != '' && $value->published_at != null) {
+                    return date_format(date_create($value->published_at), 'j F, Y');
                 } else {
                     return '-';
                 }
@@ -212,10 +224,10 @@ class BlogDataGrid extends DataGrid
 
         if (bouncer()->hasPermission('blog.blogs.delete')) {
             $this->addAction([
-                'title' => 'delete',
+                'title'  => trans('blog::app.datagrid.delete'),
                 'method' => 'POST',
-                'icon' => 'icon-delete',
-                'route' => 'admin.blog.delete',
+                'icon'   => 'icon-delete',
+                'route'  => 'admin.blog.delete',
                 'url'    => function ($row) {
                     return route('admin.blog.delete', $row->id);
                 },
@@ -227,12 +239,9 @@ class BlogDataGrid extends DataGrid
     {
         if (bouncer()->hasPermission('blog.blogs.delete')) {
             $this->addMassAction([
-                'type'   => 'delete',
-                'label'  => trans('admin::app.datagrid.delete'),
-                'title'  => 'Delete',
-                'action' => route('admin.blog.massdelete'),
-                'url' => route('admin.blog.massdelete'),
+                'title'  => trans('blog::app.datagrid.delete'),
                 'method' => 'POST',
+                'url' => route('admin.blog.massdelete'),
             ]);
         }
     }

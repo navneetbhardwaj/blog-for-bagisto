@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Sale;
 
 class RefundController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/refunds",
-	 *      operationId="getOrderRefunds",
-	 *      tags={"Refunds"},
-	 *      summary="Get admin order's refunds list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/refunds",
+     *      operationId="getOrderRefunds",
+     *      tags={"Refunds"},
+     *      summary="Get admin order's refunds list",
      *      description="Returns order's refunds list, if you want to retrieve all refunds at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -82,18 +82,18 @@ class RefundController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/refunds/{id}",
-	 *      operationId="getOrderRefundDetail",
-	 *      tags={"Refunds"},
-	 *      summary="Get admin order's refund detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/refunds/{id}",
+     *      operationId="getOrderRefundDetail",
+     *      tags={"Refunds"},
+     *      summary="Get admin order's refund detail",
      *      description="Returns order's refund detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -116,11 +116,11 @@ class RefundController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -141,7 +141,7 @@ class RefundController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="refund",
@@ -183,17 +183,17 @@ class RefundController
      *              @OA\Property(property="data", type="object", ref="#/components/schemas/Refund")
      *          )
      *      ),
-	 *      @OA\Response(
-	 *          response=400,
-	 *          description="Bad Request",
-	 *          @OA\JsonContent(
-	 *              @OA\Property(
-	 * 					property="message",
-	 * 					type="string",
-	 * 					example="Order refund creation is not allowed."
-	 * 				)
-	 *          )
-	 *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     * 					property="message",
+     * 					type="string",
+     * 					example="Order refund creation is not allowed."
+     * 				)
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",

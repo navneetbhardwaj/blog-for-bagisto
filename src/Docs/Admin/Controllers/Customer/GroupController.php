@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Customer;
 
 class GroupController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/groups",
-	 *      operationId="getCustomerGroups",
-	 *      tags={"CustomerGroups"},
-	 *      summary="Get admin customer group list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/groups",
+     *      operationId="getCustomerGroups",
+     *      tags={"CustomerGroups"},
+     *      summary="Get admin customer group list",
      *      description="Returns customer group list, if you want to retrieve all customer groups at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class GroupController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/groups/{id}",
-	 *      operationId="getCustomerGroup",
-	 *      tags={"CustomerGroups"},
-	 *      summary="Get admin customer group detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/groups/{id}",
+     *      operationId="getCustomerGroup",
+     *      tags={"CustomerGroups"},
+     *      summary="Get admin customer group detail",
      *      description="Returns customer group detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class GroupController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -178,7 +178,7 @@ class GroupController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

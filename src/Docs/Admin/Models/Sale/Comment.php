@@ -82,7 +82,7 @@ class Comment
      * @var \DateTime
      */
     private $updated_at;
-    
+
     /**
      * @OA\Property(
      *     title="Order",

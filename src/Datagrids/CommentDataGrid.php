@@ -17,24 +17,19 @@ class CommentDataGrid extends DataGrid
 
     public function prepareQueryBuilder()
     {
-        // $queryBuilder = DB::table('blog_comments')
-        //     ->select('blog_comments.id', 'blog_comments.post', 'blog_comments.author', 'blog_comments.email', 'blog_comments.comment', 'blog_comments.status', 'blog_comments.created_at');
-
-        // return $queryBuilder;
-
         $loggedIn_user = auth()->guard('admin')->user()->toarray();
-        $user_id = ( array_key_exists('id', $loggedIn_user) ) ? $loggedIn_user['id'] : 0;
-        $role = ( array_key_exists('role', $loggedIn_user) ) ? ( array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator' ) : 'Administrator';
+        $user_id = (array_key_exists('id', $loggedIn_user)) ? $loggedIn_user['id'] : 0;
+        $role = (array_key_exists('role', $loggedIn_user)) ? (array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator') : 'Administrator';
 
         $queryBuilder = DB::table('blog_comments');
 
-            if ( $role != 'Administrator' ) {
-                $blogs = Blog::where('author_id', $user_id)->get();
-                $post_ids = ( !empty($blogs) && count($blogs) > 0 ) ? $blogs->pluck('id')->toarray() : array();
-                $queryBuilder->whereIn('blog_comments.post', $post_ids);
-            }
+        if ($role != 'Administrator') {
+            $blogs = Blog::where('author_id', $user_id)->get();
+            $post_ids = (!empty($blogs) && count($blogs) > 0) ? $blogs->pluck('id')->toarray() : array();
+            $queryBuilder->whereIn('blog_comments.post', $post_ids);
+        }
 
-            $queryBuilder->select('blog_comments.id', 'blog_comments.post', 'blog_comments.author', 'blog_comments.email', 'blog_comments.comment', 'blog_comments.status', 'blog_comments.created_at');
+        $queryBuilder->select('blog_comments.id', 'blog_comments.post', 'blog_comments.author', 'blog_comments.email', 'blog_comments.comment', 'blog_comments.status', 'blog_comments.created_at');
 
         return $queryBuilder;
     }
@@ -59,7 +54,7 @@ class CommentDataGrid extends DataGrid
             'filterable' => false,
             'closure'    => function ($value) {
                 $post = Blog::where('id', $value->post)->first();
-                $post_name = ( $post && isset($post->name) && !empty($post->name) && !is_null($post->name) ) ? $post->name : '-';
+                $post_name = ($post && isset($post->name) && !empty($post->name) && !is_null($post->name)) ? $post->name : '-';
                 return $post_name;
             },
         ]);
@@ -99,8 +94,8 @@ class CommentDataGrid extends DataGrid
             'sortable'   => true,
             'filterable' => true,
             'closure' => function ($value) {
-                if ( $value->created_at != '' && $value->created_at != null ) {
-                    return date_format( date_create($value->created_at), 'j F, Y' );
+                if ($value->created_at != '' && $value->created_at != null) {
+                    return date_format(date_create($value->created_at), 'j F, Y');
                 } else {
                     return '-';
                 }

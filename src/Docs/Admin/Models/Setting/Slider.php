@@ -124,7 +124,7 @@ class Slider
      * @var \Date
      */
     private $expired_at;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class SliderController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/sliders",
-	 *      operationId="getSliders",
-	 *      tags={"Sliders"},
-	 *      summary="Get admin slider list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/sliders",
+     *      operationId="getSliders",
+     *      tags={"Sliders"},
+     *      summary="Get admin slider list",
      *      description="Returns slider list, if you want to retrieve all sliders at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class SliderController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/sliders/{id}",
-	 *      operationId="getSlider",
-	 *      tags={"Sliders"},
-	 *      summary="Get admin slider detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/sliders/{id}",
+     *      operationId="getSlider",
+     *      tags={"Sliders"},
+     *      summary="Get admin slider detail",
      *      description="Returns slider detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class SliderController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -213,7 +213,7 @@ class SliderController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="title",

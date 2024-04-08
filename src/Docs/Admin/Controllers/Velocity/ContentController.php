@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Velocity;
 
 class ContentController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/velocity/contents",
-	 *      operationId="getVeloctyContents",
-	 *      tags={"Velocity"},
-	 *      summary="Get admin velocty's content list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/velocity/contents",
+     *      operationId="getVeloctyContents",
+     *      tags={"Velocity"},
+     *      summary="Get admin velocty's content list",
      *      description="Returns velocty's content list, if you want to retrieve all velocty's contents at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class ContentController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/velocity/contents/{id}",
-	 *      operationId="getVelocityContent",
-	 *      tags={"Velocity"},
-	 *      summary="Get admin velocity's content detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/velocity/contents/{id}",
+     *      operationId="getVelocityContent",
+     *      tags={"Velocity"},
+     *      summary="Get admin velocity's content detail",
      *      description="Returns velocity's content detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class ContentController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -206,7 +206,7 @@ class ContentController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="locale",

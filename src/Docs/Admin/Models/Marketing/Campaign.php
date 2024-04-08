@@ -136,7 +136,7 @@ class Campaign
      * @var object
      */
     private $event;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class InventorySourceController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/inventory-sources",
-	 *      operationId="getSettingInventorySources",
-	 *      tags={"Inventory-Sources"},
-	 *      summary="Get admin inventory source list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/inventory-sources",
+     *      operationId="getSettingInventorySources",
+     *      tags={"Inventory-Sources"},
+     *      summary="Get admin inventory source list",
      *      description="Returns inventory source list, if you want to retrieve all inventory sources at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class InventorySourceController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/inventory-sources/{id}",
-	 *      operationId="getSalesInventorySource",
-	 *      tags={"Inventory-Sources"},
-	 *      summary="Get admin inventory source detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/inventory-sources/{id}",
+     *      operationId="getSalesInventorySource",
+     *      tags={"Inventory-Sources"},
+     *      summary="Get admin inventory source detail",
      *      description="Returns inventory source detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class InventorySourceController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -238,7 +238,7 @@ class InventorySourceController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

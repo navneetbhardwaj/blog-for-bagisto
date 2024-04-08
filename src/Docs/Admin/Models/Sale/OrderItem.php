@@ -21,7 +21,7 @@ class OrderItem
      * @var integer
      */
     private $id;
-    
+
     /**
      * @OA\Property(
      *     title="SKU",
@@ -32,7 +32,7 @@ class OrderItem
      * @var string
      */
     private $sku;
-    
+
     /**
      * @OA\Property(
      *     title="Type",
@@ -43,7 +43,7 @@ class OrderItem
      * @var string
      */
     private $type;
-    
+
     /**
      * @OA\Property(
      *     title="Name",
@@ -54,7 +54,7 @@ class OrderItem
      * @var string
      */
     private $name;
-    
+
     /**
      * @OA\Property(
      *     title="Product ID",
@@ -744,8 +744,8 @@ class OrderItem
      * @var object
      */
     private $additional;
-    
-    
+
+
     /**
      * @OA\Property(
      *     title="Child",
@@ -757,7 +757,7 @@ class OrderItem
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderItem
      */
     private $child;
-    
+
     /**
      * @OA\Property(
      *     title="Children",
@@ -769,7 +769,7 @@ class OrderItem
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderItem
      */
     private $children;
-    
+
     /**
      * @OA\Property(
      *     title="Downloadable Links",
@@ -779,7 +779,7 @@ class OrderItem
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderDownloadableLink
      */
     private $downloadable_links;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

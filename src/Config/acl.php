@@ -2,10 +2,10 @@
 
 return [
     [
-        'key' => 'blog',
-        'name' => 'Blog',
+        'key'   => 'blog',
+        'name'  => 'Blog',
         'route' => 'admin.blog.index',
-        'sort' => 3
+        'sort'  => 3
     ], [
         'key'   => 'blog.blogs',
         'name'  => 'Blogs',
@@ -87,5 +87,4 @@ return [
         'route' => 'admin.blog.setting.index',
         'sort'  => 5,
     ]
-
 ];

@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Sale;
 
 class ShipmentController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/shipments",
-	 *      operationId="getOrderShipments",
-	 *      tags={"Shipments"},
-	 *      summary="Get admin order's shipments list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/shipments",
+     *      operationId="getOrderShipments",
+     *      tags={"Shipments"},
+     *      summary="Get admin order's shipments list",
      *      description="Returns order's shipments list, if you want to retrieve all shipments at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -82,18 +82,18 @@ class ShipmentController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/shipments/{id}",
-	 *      operationId="getOrderShipmentDetail",
-	 *      tags={"Shipments"},
-	 *      summary="Get admin order's Shipment detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/shipments/{id}",
+     *      operationId="getOrderShipmentDetail",
+     *      tags={"Shipments"},
+     *      summary="Get admin order's Shipment detail",
      *      description="Returns order's Shipment detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -116,11 +116,11 @@ class ShipmentController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -141,7 +141,7 @@ class ShipmentController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="shipment",
@@ -192,17 +192,17 @@ class ShipmentController
      *              @OA\Property(property="data", type="object", ref="#/components/schemas/Shipment")
      *          )
      *      ),
-	 *      @OA\Response(
-	 *          response=400,
-	 *          description="Bad Request",
-	 *          @OA\JsonContent(
-	 *              @OA\Property(
-	 * 					property="message",
-	 * 					type="string",
-	 * 					example="Order shipment creation is not allowed."
-	 * 				)
-	 *          )
-	 *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     * 					property="message",
+     * 					type="string",
+     * 					example="Order shipment creation is not allowed."
+     * 				)
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",

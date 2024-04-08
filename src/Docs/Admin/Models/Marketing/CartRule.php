@@ -116,7 +116,7 @@ class CartRule
      * @var string
      */
     private $coupon_code;
-    
+
     /**
      * @OA\Property(
      *     title="Uses Per Coupon",
@@ -127,7 +127,7 @@ class CartRule
      * @var integer
      */
     private $uses_per_coupon;
-    
+
     /**
      * @OA\Property(
      *     title="Uses Per Customer",
@@ -138,7 +138,7 @@ class CartRule
      * @var integer
      */
     private $usage_per_customer;
-    
+
     /**
      * @OA\Property(
      *     title="Times Used",
@@ -149,7 +149,7 @@ class CartRule
      * @var integer
      */
     private $times_used;
-    
+
     /**
      * @OA\Property(
      *     title="Condition Type",
@@ -264,7 +264,7 @@ class CartRule
      * @var integer
      */
     private $free_shipping;
-    
+
     /**
      * @OA\Property(
      *     title="Sort Order",
@@ -275,7 +275,7 @@ class CartRule
      * @var integer
      */
     private $sort_order;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

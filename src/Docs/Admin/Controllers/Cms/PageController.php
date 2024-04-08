@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Cms;
 
 class PageController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/cms",
-	 *      operationId="getCmsPages",
-	 *      tags={"Cms-Pages"},
-	 *      summary="Get admin CMS page list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/cms",
+     *      operationId="getCmsPages",
+     *      tags={"Cms-Pages"},
+     *      summary="Get admin CMS page list",
      *      description="Returns CMS page list, if you want to retrieve all CMS pages at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class PageController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/cms/{id}",
-	 *      operationId="getCMSPage",
-	 *      tags={"Cms-Pages"},
-	 *      summary="Get admin CMS page detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/cms/{id}",
+     *      operationId="getCMSPage",
+     *      tags={"Cms-Pages"},
+     *      summary="Get admin CMS page detail",
      *      description="Returns CMS page detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class PageController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -209,7 +209,7 @@ class PageController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      description="Provide locale code as key to this index i.e. 'en'",
@@ -331,7 +331,7 @@ class PageController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

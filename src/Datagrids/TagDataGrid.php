@@ -49,7 +49,8 @@ class TagDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('blog_tags')->select('id')
-            ->addSelect('id', 'name', 'slug', 'description', 'status', 'meta_title', 'meta_description', 'meta_keywords');;
+            ->addSelect('id', 'name', 'slug', 'description', 'status', 'meta_title', 'meta_description', 'meta_keywords');
+        ;
 
         return $queryBuilder;
     }

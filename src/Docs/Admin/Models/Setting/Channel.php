@@ -185,7 +185,7 @@ class Channel
      * @var \Webkul\RestApi\Docs\Admin\Models\Catalog\Category
      */
     private $root_category;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

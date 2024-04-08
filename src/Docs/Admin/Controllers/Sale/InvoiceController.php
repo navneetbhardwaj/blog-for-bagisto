@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Sale;
 
 class InvoiceController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/invoices",
-	 *      operationId="getOrderInvoices",
-	 *      tags={"Invoices"},
-	 *      summary="Get admin order's invoices list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/invoices",
+     *      operationId="getOrderInvoices",
+     *      tags={"Invoices"},
+     *      summary="Get admin order's invoices list",
      *      description="Returns order's invoices list, if you want to retrieve all invoices at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -82,18 +82,18 @@ class InvoiceController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/invoices/{id}",
-	 *      operationId="getOrderInvoiceDetail",
-	 *      tags={"Invoices"},
-	 *      summary="Get admin order's invoice detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/invoices/{id}",
+     *      operationId="getOrderInvoiceDetail",
+     *      tags={"Invoices"},
+     *      summary="Get admin order's invoice detail",
      *      description="Returns order's invoice detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -116,11 +116,11 @@ class InvoiceController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -141,7 +141,7 @@ class InvoiceController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="invoice",
@@ -165,17 +165,17 @@ class InvoiceController
      *              @OA\Property(property="data", type="object", ref="#/components/schemas/Invoice")
      *          )
      *      ),
-	 *      @OA\Response(
-	 *          response=400,
-	 *          description="Bad Request",
-	 *          @OA\JsonContent(
-	 *              @OA\Property(
-	 * 					property="message",
-	 * 					type="string",
-	 * 					example="Order invoice creation is not allowed."
-	 * 				)
-	 *          )
-	 *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     * 					property="message",
+     * 					type="string",
+     * 					example="Order invoice creation is not allowed."
+     * 				)
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",

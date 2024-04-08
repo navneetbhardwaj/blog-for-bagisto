@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Sale;
 
 class TransactionController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/transactions",
-	 *      operationId="getOrderTransactions",
-	 *      tags={"Transactions"},
-	 *      summary="Get admin order's transactions list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/transactions",
+     *      operationId="getOrderTransactions",
+     *      tags={"Transactions"},
+     *      summary="Get admin order's transactions list",
      *      description="Returns order's transactions list, if you want to retrieve all transactions at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -91,18 +91,18 @@ class TransactionController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/sales/transactions/{id}",
-	 *      operationId="getOrderTransactionDetail",
-	 *      tags={"Transactions"},
-	 *      summary="Get admin order's transaction detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/sales/transactions/{id}",
+     *      operationId="getOrderTransactionDetail",
+     *      tags={"Transactions"},
+     *      summary="Get admin order's transaction detail",
      *      description="Returns order's transaction detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -125,11 +125,11 @@ class TransactionController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -141,7 +141,7 @@ class TransactionController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="multipart/form-data",
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="invoice_id",
@@ -171,17 +171,17 @@ class TransactionController
      *              @OA\Property(property="data", type="object", ref="#/components/schemas/Transaction")
      *          )
      *      ),
-	 *      @OA\Response(
-	 *          response=400,
-	 *          description="Bad Request",
-	 *          @OA\JsonContent(
-	 *              @OA\Property(
-	 * 					property="message",
-	 * 					type="string",
-	 * 					example="The specified amount of this transaction exceeds the total amount of the invoice."
-	 * 				)
-	 *          )
-	 *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     * 					property="message",
+     * 					type="string",
+     * 					example="The specified amount of this transaction exceeds the total amount of the invoice."
+     * 				)
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",

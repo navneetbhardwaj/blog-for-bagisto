@@ -86,7 +86,7 @@ class CategoryDataGrid extends DataGrid
             'filterable' => true,
             'closure'    => function ($value) {
                 $parent_data = Category::where('id', (int)$value->parent_id)->first();
-                $parent_category_name = ( $parent_data && isset($parent_data->name) && !empty($parent_data->name) && !is_null($parent_data->name) ) ? $parent_data->name : '-';
+                $parent_category_name = ($parent_data && isset($parent_data->name) && !empty($parent_data->name) && !is_null($parent_data->name)) ? $parent_data->name : '-';
                 return $parent_category_name;
             },
         ]);

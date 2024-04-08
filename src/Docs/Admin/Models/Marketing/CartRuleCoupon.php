@@ -99,7 +99,7 @@ class CartRuleCoupon
      * @var integer
      */
     private $cart_rule_id;
-    
+
     /**
      * @OA\Property(
      *     title="Expired at",

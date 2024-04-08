@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Customer;
 
 class CustomerController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers",
-	 *      operationId="getCustomers",
-	 *      tags={"Customers"},
-	 *      summary="Get admin customer list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers",
+     *      operationId="getCustomers",
+     *      tags={"Customers"},
+     *      summary="Get admin customer list",
      *      description="Returns customer list, if you want to retrieve all customers at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class CustomerController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/{id}",
-	 *      operationId="getCustomer",
-	 *      tags={"Customers"},
-	 *      summary="Get admin customer detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/{id}",
+     *      operationId="getCustomer",
+     *      tags={"Customers"},
+     *      summary="Get admin customer detail",
      *      description="Returns customer detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class CustomerController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -210,7 +210,7 @@ class CustomerController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="first_name",
@@ -344,7 +344,7 @@ class CustomerController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",
@@ -373,12 +373,12 @@ class CustomerController
     {
     }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/{id}/orders",
-	 *      operationId="getCustomerOrders",
-	 *      tags={"Customers"},
-	 *      summary="Get admin customer's order list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/{id}/orders",
+     *      operationId="getCustomerOrders",
+     *      tags={"Customers"},
+     *      summary="Get admin customer's order list",
      *      description="Returns customer's order list",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -401,18 +401,18 @@ class CustomerController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function orders()
-	{
-	}
-    
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/customers/{id}/invoices",
-	 *      operationId="getCustomerInvoices",
-	 *      tags={"Customers"},
-	 *      summary="Get admin order's invoice list by customer id",
+     * )
+     */
+    public function orders()
+    {
+    }
+
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/customers/{id}/invoices",
+     *      operationId="getCustomerInvoices",
+     *      tags={"Customers"},
+     *      summary="Get admin order's invoice list by customer id",
      *      description="Get admin order's invoice list by customer id",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -435,18 +435,18 @@ class CustomerController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function invoices()
-	{
-	}
-    
-	/**
-	 * @OA\Post(
-	 *      path="/api/v1/admin/customers/{id}/notes",
-	 *      operationId="storeCustomerNote",
-	 *      tags={"Customers"},
-	 *      summary="Store the customer's note by customer id",
+     * )
+     */
+    public function invoices()
+    {
+    }
+
+    /**
+     * @OA\Post(
+     *      path="/api/v1/admin/customers/{id}/notes",
+     *      operationId="storeCustomerNote",
+     *      tags={"Customers"},
+     *      summary="Store the customer's note by customer id",
      *      description="Store the customer's note by customer id",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -483,9 +483,9 @@ class CustomerController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function storeNote()
-	{
-	}
+     * )
+     */
+    public function storeNote()
+    {
+    }
 }

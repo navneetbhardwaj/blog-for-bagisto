@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Catalog;
 
 class ProductController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/products",
-	 *      operationId="getProducts",
-	 *      tags={"Products"},
-	 *      summary="Get admin catalog product list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/products",
+     *      operationId="getProducts",
+     *      tags={"Products"},
+     *      summary="Get admin catalog product list",
      *      description="Returns catalog product list, if you want to retrieve all catalog products at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -78,18 +78,18 @@ class ProductController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/catalog/products/{id}",
-	 *      operationId="getProduct",
-	 *      tags={"Products"},
-	 *      summary="Get admin catalog product detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/catalog/products/{id}",
+     *      operationId="getProduct",
+     *      tags={"Products"},
+     *      summary="Get admin catalog product detail",
      *      description="Returns catalog product detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -115,11 +115,11 @@ class ProductController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -928,27 +928,27 @@ class ProductController
      *                      property="booking",
      *                      description="Booking product options, `Info: Only use in booking type product`",
      *                      type="object",
-     * 
+     *
      *                      @OA\Property(property="type", type="string", example="default", enum={"default", "appointment", "event", "rental", "table"}),
-     * 
+     *
      *                      @OA\Property(property="booking_type", description="`Only use with booking type=default`", type="string", example="one", enum={"one","many"}),
-     * 
+     *
      *                      @OA\Property(property="location", type="string", example="India"),
-     * 
+     *
      *                      @OA\Property(property="available_every_week", description="`Use with booking type=appointment, rental, table`", type="integer", example=1, enum={0,1}),
-     * 
+     *
      *                      @OA\Property(property="available_from", description="`Not use if available_every_week=1 in appointment, rental, table bookings`", format="datetime", type="string", example="2023-05-31 12:00:00"),
-     * 
+     *
      *                      @OA\Property(property="available_to", description="`Not use if available_every_week=1 in appointment, rental, table bookings`", format="datetime", type="string", example="2024-05-31 12:00:00"),
-     * 
+     *
      *                      @OA\Property(property="duration", description="`Not use with type=event, rental, & booking_type=one`", type="float", example=30),
-     * 
+     *
      *                      @OA\Property(property="break_time", description="`Not use with type=event, rental, & booking_type=one`", type="float", example=15),
-     * 
+     *
      *                      @OA\Property(property="qty", description="`Not use with booking type=event`", type="integer", example=50),
-     * 
+     *
      *                      @OA\Property(property="same_slot_all_days", description="`Use with booking type=appointment, rental, table`", type="integer", example=1, enum={0,1}),
-     * 
+     *
      *                      @OA\Property(
      *                          property="slots",
      *                          description="`Not use with booking type=event`",
@@ -961,7 +961,7 @@ class ProductController
      *                              @OA\Property(property="status", description="`Only use with booking_type=many`", type="integer", example=1, enum={0,1})
      *                          )
      *                      ),
-     * 
+     *
      *                      @OA\Property(
      *                          property="tickets",
      *                          description="`Only use with booking type=event`",
@@ -969,7 +969,7 @@ class ProductController
      *                          @OA\Property(
      *                              property="ticket_0",
      *                              type="object",
-     *                              @OA\Property(property="en", type="object", 
+     *                              @OA\Property(property="en", type="object",
      *                                  @OA\Property(property="name", type="string", example="Morning Show"),
      *                                  @OA\Property(property="description", type="string", example="Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
      *                              ),
@@ -982,7 +982,7 @@ class ProductController
      *                          @OA\Property(
      *                              property="ticket_1",
      *                              type="object",
-     *                              @OA\Property(property="en", type="object", 
+     *                              @OA\Property(property="en", type="object",
      *                                  @OA\Property(property="name", type="string", example="Evening Show"),
      *                                  @OA\Property(property="description", type="string", example="Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
      *                              ),
@@ -993,17 +993,17 @@ class ProductController
      *                              @OA\Property(property="special_price_to", format="datetime", type="string", example="2024-05-31 12:00:00")
      *                          )
      *                      ),
-     * 
+     *
      *                      @OA\Property(property="renting_type", description="`Only use with booking type=rental`", type="string", example="daily_hourly", enum={"daily", "hourly", "daily_hourly"}),
-     * 
+     *
      *                      @OA\Property(property="daily_price", description="`Only use with booking type=rental & renting_type=daily, daily_hourly`", type="float", example=24.00),
-     * 
+     *
      *                      @OA\Property(property="hourly_price", description="`Only use with booking type=rental & renting_type=hourly, daily_hourly`", type="float", example=1.00),
-     * 
+     *
      *                      @OA\Property(property="price_type", description="`Only use with booking type=table`", type="string", example="guest", enum={"guest", "table"}),
-     * 
+     *
      *                      @OA\Property(property="guest_limit", description="`Only use with booking type=table & price_type=table`", type="integer", example=20),
-     * 
+     *
      *                      @OA\Property(property="prevent_scheduling_before", description="`Only use with booking type=table`", type="float", example=5.00)
      *                  ),
      *                  required={"sku", "name", "url_key", "short_description", "description"}
@@ -1136,7 +1136,7 @@ class ProductController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",
@@ -1182,7 +1182,7 @@ class ProductController
      *      security={ {"sanctum_admin": {} }},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="indexes",

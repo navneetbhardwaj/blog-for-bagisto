@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class EmailTemplateController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/email-templates",
-	 *      operationId="getEmailTemplates",
-	 *      tags={"EmailTemplates"},
-	 *      summary="Get admin email template list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/email-templates",
+     *      operationId="getEmailTemplates",
+     *      tags={"EmailTemplates"},
+     *      summary="Get admin email template list",
      *      description="Returns email template list, if you want to retrieve all email templates at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class EmailTemplateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/email-templates/{id}",
-	 *      operationId="getEmailTemplate",
-	 *      tags={"EmailTemplates"},
-	 *      summary="Get admin email template detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/email-templates/{id}",
+     *      operationId="getEmailTemplate",
+     *      tags={"EmailTemplates"},
+     *      summary="Get admin email template detail",
      *      description="Returns email template detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class EmailTemplateController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -185,7 +185,7 @@ class EmailTemplateController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

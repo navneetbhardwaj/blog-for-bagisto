@@ -21,7 +21,7 @@ class OrderDownloadableLink
      * @var integer
      */
     private $id;
-    
+
     /**
      * @OA\Property(
      *     title="Product Name",
@@ -32,7 +32,7 @@ class OrderDownloadableLink
      * @var string
      */
     private $product_name;
-    
+
     /**
      * @OA\Property(
      *     title="Name",
@@ -135,7 +135,7 @@ class OrderDownloadableLink
      * @var integer
      */
     private $customer_id;
-    
+
     /**
      * @OA\Property(
      *     title="Order ID",
@@ -159,7 +159,7 @@ class OrderDownloadableLink
      * @var integer
      */
     private $order_item_id;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

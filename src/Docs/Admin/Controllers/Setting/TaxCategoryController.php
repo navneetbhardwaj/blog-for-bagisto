@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Setting;
 
 class TaxCategoryController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/tax-categories",
-	 *      operationId="getTaxCategories",
-	 *      tags={"Tax-Categories"},
-	 *      summary="Get admin tax category list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/tax-categories",
+     *      operationId="getTaxCategories",
+     *      tags={"Tax-Categories"},
+     *      summary="Get admin tax category list",
      *      description="Returns tax category list, if you want to retrieve all tax categories at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class TaxCategoryController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/settings/tax-categories/{id}",
-	 *      operationId="getTaxCategory",
-	 *      tags={"Tax-Categories"},
-	 *      summary="Get admin tax category detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/settings/tax-categories/{id}",
+     *      operationId="getTaxCategory",
+     *      tags={"Tax-Categories"},
+     *      summary="Get admin tax category detail",
      *      description="Returns tax category detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class TaxCategoryController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -190,7 +190,7 @@ class TaxCategoryController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="code",

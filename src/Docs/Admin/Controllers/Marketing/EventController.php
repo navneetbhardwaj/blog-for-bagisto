@@ -4,12 +4,12 @@ namespace Webkul\RestApi\Docs\Admin\Controllers\Marketing;
 
 class EventController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/events",
-	 *      operationId="getEvents",
-	 *      tags={"Events"},
-	 *      summary="Get admin event list",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/events",
+     *      operationId="getEvents",
+     *      tags={"Events"},
+     *      summary="Get admin event list",
      *      description="Returns event list, if you want to retrieve all events at once pass pagination=0 otherwise ignore this parameter",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -73,18 +73,18 @@ class EventController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/admin/promotions/events/{id}",
-	 *      operationId="getEvent",
-	 *      tags={"Events"},
-	 *      summary="Get admin event detail",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/admin/promotions/events/{id}",
+     *      operationId="getEvent",
+     *      tags={"Events"},
+     *      summary="Get admin event detail",
      *      description="Returns event detail",
      *      security={ {"sanctum_admin": {} }},
      *      @OA\Parameter(
@@ -107,11 +107,11 @@ class EventController
      *              )
      *          )
      *      )
-	 * )
-	 */
-	public function get()
-	{
-	}
+     * )
+     */
+    public function get()
+    {
+    }
 
     /**
      * @OA\Post(
@@ -185,7 +185,7 @@ class EventController
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-	 *              mediaType="application/json",
+     *              mediaType="application/json",
      *              @OA\Schema(
      *                  @OA\Property(
      *                      property="name",

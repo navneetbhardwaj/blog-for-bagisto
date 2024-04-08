@@ -11,12 +11,13 @@ use Webbycrown\BlogBagisto\Models\Tag;
 use Webbycrown\BlogBagisto\Models\Comment;
 use Webkul\Core\Models\CoreConfig;
 use Webbycrown\BlogBagisto\Repositories\BlogCommentRepository;
-use Webkul\Shop\Repositories\ThemeCustomizationRepository;
+use Webkul\Theme\Repositories\ThemeCustomizationRepository;
 use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -28,19 +29,17 @@ class CommentController extends Controller
     /**
      * Using const variable for status
      */
-    const STATUS = 1;
+    public const STATUS = 1;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct
-    (
-    	protected ThemeCustomizationRepository $themeCustomizationRepository,
-    	protected BlogCommentRepository $blogCommentRepository,
-    )
-    {
+    public function __construct(
+        protected ThemeCustomizationRepository $themeCustomizationRepository,
+        protected BlogCommentRepository $blogCommentRepository,
+    ) {
         $this->_config = request('_config');
     }
 

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -21,7 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->foreignId('channels');
             $table->foreignId('default_category');
-            $table->string('categorys')->nullable();
+            $table->string('categories')->nullable();
             $table->string('tags');
             $table->string('author');
             $table->foreignId('author_id')->default(0);

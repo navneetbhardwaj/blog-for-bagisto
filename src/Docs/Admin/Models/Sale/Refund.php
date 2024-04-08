@@ -33,7 +33,7 @@ class Refund
      * @var integer
      */
     private $increment_id;
-    
+
     /**
      * @OA\Property(
      *     title="State",
@@ -57,7 +57,7 @@ class Refund
      * @var integer
      */
     private $email_sent;
-    
+
     /**
      * @OA\Property(
      *     title="Total Quantity",
@@ -102,7 +102,7 @@ class Refund
      * @var string
      */
     private $order_currency_code;
-    
+
     /**
      * @OA\Property(
      *     title="Adjustment Refund",
@@ -113,7 +113,7 @@ class Refund
      * @var float
      */
     private $adjustment_refund;
-    
+
     /**
      * @OA\Property(
      *     title="Base Adjustment Refund",
@@ -124,7 +124,7 @@ class Refund
      * @var float
      */
     private $base_adjustment_refund;
-    
+
     /**
      * @OA\Property(
      *     title="Adjustment Fee",
@@ -135,7 +135,7 @@ class Refund
      * @var float
      */
     private $adjustment_fee;
-    
+
     /**
      * @OA\Property(
      *     title="Base Adjustment Fee",
@@ -389,7 +389,7 @@ class Refund
      * @var integer
      */
     private $order_id;
-    
+
     /**
      * @OA\Property(
      *     title="Refund Items",
@@ -399,7 +399,7 @@ class Refund
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\RefundItem
      */
     private $items;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

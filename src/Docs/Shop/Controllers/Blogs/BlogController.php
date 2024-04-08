@@ -4,12 +4,12 @@ namespace Webbycrown\BlogBagisto\Docs\Shop\Controllers\Blogs;
 
 class BlogController
 {
-	/**
-	 * @OA\Get(
-	 *      path="/api/v1/blogs",
-	 *      operationId="getShopBlogs",
-	 *      tags={"Blogs"},
-	 *      summary="Get blog list for the shop",
+    /**
+     * @OA\Get(
+     *      path="/api/v1/blogs",
+     *      operationId="getShopBlogs",
+     *      tags={"Blogs"},
+     *      summary="Get blog list for the shop",
      *      description="Returns blog list, if you want to retrieve all blog at once pass pagination=0 otherwise ignore this parameter",
      *      @OA\Parameter(
      *          name="id",
@@ -68,10 +68,10 @@ class BlogController
      *              ),
      *          )
      *      )
-	 * )
-	 */
-	public function list()
-	{
-	}
+     * )
+     */
+    public function list()
+    {
+    }
 
 }

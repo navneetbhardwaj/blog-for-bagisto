@@ -61,7 +61,7 @@ class User
      *     title="Role",
      *     description="Admin user's role"
      * )
-     * 
+     *
      * @var \Webkul\RestApi\Docs\Admin\Models\User\Role
      */
     private $role;
@@ -76,7 +76,7 @@ class User
      * @var string
      */
     private $token;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

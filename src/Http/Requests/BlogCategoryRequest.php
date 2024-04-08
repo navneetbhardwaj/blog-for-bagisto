@@ -25,7 +25,7 @@ class BlogCategoryRequest extends FormRequest
     public function rules()
     {
         $locale = core()->getRequestedLocaleCode();
-        $locale = ( is_array( $locale ) && count( $locale ) > 0 ) ? $locale[0] : 'en';
+        $locale = (is_array($locale) && count($locale) > 0) ? $locale[0] : 'en';
 
         if ($id = request('id')) {
             return [
@@ -40,7 +40,7 @@ class BlogCategoryRequest extends FormRequest
         }
 
         return [
-            'slug'              => ['required', new BlogCategoryUniqueSlug],
+            'slug'              => ['required', new BlogCategoryUniqueSlug()],
             'name'              => 'required',
             'image.*'           => 'mimes:bmp,jpeg,jpg,png,webp',
             'description'       => 'required',

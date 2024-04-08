@@ -318,7 +318,7 @@ class Invoice
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderAddress
      */
     private $order_address;
-    
+
     /**
      * @OA\Property(
      *     title="Invoice Items",
@@ -339,7 +339,7 @@ class Invoice
      * @var string
      */
     private $transaction_id;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

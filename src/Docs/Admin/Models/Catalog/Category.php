@@ -144,7 +144,7 @@ class Category
      * @var object
      */
     private $additional;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

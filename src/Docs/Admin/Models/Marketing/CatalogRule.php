@@ -161,7 +161,7 @@ class CatalogRule
      * @var integer
      */
     private $sort_order;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

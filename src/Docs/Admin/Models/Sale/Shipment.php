@@ -21,7 +21,7 @@ class Shipment
      * @var integer
      */
     private $id;
-    
+
     /**
      * @OA\Property(
      *     title="Order's Shipment Status",
@@ -32,7 +32,7 @@ class Shipment
      * @var string
      */
     private $status;
-    
+
     /**
      * @OA\Property(
      *     title="Shipment Total Quantity",
@@ -44,7 +44,7 @@ class Shipment
      * @var integer
      */
     private $total_qty;
-    
+
     /**
      * @OA\Property(
      *     title="Total Weight Of Shipment",
@@ -55,7 +55,7 @@ class Shipment
      * @var float
      */
     private $total_weight;
-    
+
     /**
      * @OA\Property(
      *     title="Carrier/Shipment Code",
@@ -66,7 +66,7 @@ class Shipment
      * @var string
      */
     private $carrier_code;
-    
+
     /**
      * @OA\Property(
      *     title="Carrier Title",
@@ -77,7 +77,7 @@ class Shipment
      * @var string
      */
     private $carrier_title;
-    
+
     /**
      * @OA\Property(
      *     title="Tracking ID",
@@ -109,7 +109,7 @@ class Shipment
      * @var \Webkul\RestApi\Docs\Admin\Models\Customer\Customer
      */
     private $customer;
-    
+
     /**
      * @OA\Property(
      *     title="Inventory Source",
@@ -119,7 +119,7 @@ class Shipment
      * @var \Webkul\RestApi\Docs\Admin\Models\Setting\InventorySource
      */
     private $inventory_source;
-    
+
     /**
      * @OA\Property(
      *     title="Shipment Items",
@@ -129,7 +129,7 @@ class Shipment
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\ShipmentItem
      */
     private $items;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

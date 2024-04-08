@@ -9,12 +9,13 @@ use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Models\Category;
 use Webbycrown\BlogBagisto\Models\Tag;
 use Webkul\Core\Models\CoreConfig;
-use Webkul\Shop\Repositories\ThemeCustomizationRepository;
+use Webkul\Theme\Repositories\ThemeCustomizationRepository;
 use Illuminate\Support\Facades\DB;
 
 class TagController extends Controller
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -26,7 +27,7 @@ class TagController extends Controller
     /**
      * Using const variable for status
      */
-    const STATUS = 1;
+    public const STATUS = 1;
 
     /**
      * Create a new controller instance.
@@ -47,10 +48,10 @@ class TagController extends Controller
     {
         $tag = Tag::where('slug', $tag_slug)->firstOrFail();
 
-        $tag_id = ( $tag && isset($tag->id) ) ? $tag->id : 0;
+        $tag_id = ($tag && isset($tag->id)) ? $tag->id : 0;
 
         $paginate = app('Webbycrown\BlogBagisto\Http\Controllers\Shop\BlogController')->getConfigByKey('blog_post_per_page');
-        $paginate = ( isset($paginate) && !empty($paginate) && is_null($paginate) ) ? (int)$paginate : 9;
+        $paginate = (isset($paginate) && !empty($paginate) && is_null($paginate)) ? (int)$paginate : 9;
 
         $blogs = Blog::orderBy('id', 'desc')->where('status', 1)->whereRaw('FIND_IN_SET(?, tags)', [$tag_id])->paginate($paginate);
 
@@ -73,5 +74,5 @@ class TagController extends Controller
 
         return view($this->_config['view'], compact('blogs', 'categories', 'customizations', 'tag', 'tags', 'show_categories_count', 'show_tags_count', 'show_author_page', 'blog_seo_meta_title', 'blog_seo_meta_keywords', 'blog_seo_meta_description'));
     }
-    
+
 }

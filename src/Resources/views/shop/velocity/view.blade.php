@@ -34,10 +34,14 @@
                         <section class="blog-hero-wrapper">
                             <div class="blog-hero-image">
                                 <h1 class="hero-main-title">{{ $blog->name }}</h1>
-                                <img
-                                    src="{{ '/storage/' . ( ( isset($blog->src) && !empty($blog->src) && !is_null($blog->src) ) ? $blog->src : 'placeholder-banner.jpg' ) }}"
-                                    alt="Blanditiis soluta et iste consectetur sapiente nobis ut perferendis fugiat veritatis incidunt dolore."
-                                    class="card-img img-fluid img-thumbnail bg-fill">
+                                <img 
+                                    src="{{ Storage::url($blog->src) }}"
+                                    onerror="this.src='{{ bagisto_asset('images/default-banner.webp', 'marketplace') }}'"
+                                    alt="{{ $blog->name }}"
+                                    height="500"
+                                    class="card-img img-fluid img-thumbnail bg-fill"
+                                />
+                                
                             </div>
                         </section>
                         <div id="blog" class="container mt-5">
@@ -105,10 +109,15 @@
                                         <div class="related-blog-post-item">
                                             <div class="blog-post-box">
                                                 <div class="card mb-5">
-                                                    <div class="blog-grid-img"><img
-                                                        src="{{ '/storage/' . ( ( isset($related_blog->src) && !empty($related_blog->src) && !is_null($related_blog->src) ) ? $related_blog->src : 'placeholder-thumb.jpg' ) }}"
-                                                        alt="{{ $related_blog->name }}"
-                                                        class="card-img-top">
+                                                    <div class="blog-grid-img">                                                     
+                                                 
+                                                        <img 
+                                                            src="{{ Storage::url($related_blog->src) }}"
+                                                            onerror="this.src='{{ bagisto_asset('images/medium-product-placeholder.webp') }}'"
+                                                            alt="{{ $related_blog->name }}"
+                                                            height="500"
+                                                            class="card-img-top"
+                                                        />
                                                     </div>
                                                     <div class="card-body">
                                                         <h2 class="card-title"><a href="{{route('shop.article.view',[$related_blog->category->slug . '/' . $related_blog->slug])}}">{{ $related_blog->name }}</a></h2>
@@ -123,10 +132,10 @@
                                                             </p>
                                                         </div>
 
-                                                        @if( !empty($related_blog->assign_categorys) && count($related_blog->assign_categorys) > 0 )
+                                                        @if( !empty($related_blog->assign_categories) && count($related_blog->assign_categories) > 0 )
                                                             <div class="post-categories">
                                                                 <p>
-                                                                    @foreach($related_blog->assign_categorys as $assign_category)
+                                                                    @foreach($related_blog->assign_categories as $assign_category)
                                                                         <a href="{{route('shop.blog.category.index',[$assign_category->slug])}}" class="cat-link">{{$assign_category->name}}</a>
                                                                     @endforeach
                                                                 </p>

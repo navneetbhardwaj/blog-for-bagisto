@@ -43,7 +43,7 @@ class Product
      * @var string
      */
     private $type;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",
@@ -112,7 +112,7 @@ class Product
      *     type="object",
      *     ref="#/components/schemas/AttributeFamily"
      * )
-     * 
+     *
      * @var object
      */
     private $attribute_family;
@@ -124,7 +124,7 @@ class Product
      *     type="array",
      *     @OA\Items(ref="#/components/schemas/ProductAttributeValue")
      * )
-     * 
+     *
      * @var array
      */
     private $attribute_values;
@@ -136,7 +136,7 @@ class Product
      *     type="array",
      *     @OA\Items(ref="#/components/schemas/ProductCustomerGroupPrice")
      * )
-     * 
+     *
      * @var array
      */
     private $customer_group_prices;

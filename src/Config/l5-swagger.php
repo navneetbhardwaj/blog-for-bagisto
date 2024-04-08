@@ -41,7 +41,7 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('vendor/webbycrown/blog-for-bagisto/src/Docs/Shop'),
+                    base_path('packages/webbycrown/blog-for-bagisto/src/Docs/Shop'),
                 ],
 
             ],
@@ -84,7 +84,7 @@ return [
         //          * Absolute paths to directory containing the swagger annotations are stored.
         //         */
         //         'annotations' => [
-        //             base_path('vendor/webbycrown/blog-for-bagisto/src/Docs/Admin'),
+        //             base_path('packages/webbycrown/blog-for-bagisto/src/Docs/Admin'),
         //         ],
 
         //     ],

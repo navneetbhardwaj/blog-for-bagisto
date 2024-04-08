@@ -6,6 +6,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Event;
 use Webbycrown\BlogBagisto\Datagrids\BlogDataGrid;
 use Webbycrown\BlogBagisto\Models\Category;
 use Webbycrown\BlogBagisto\Models\Tag;
@@ -13,10 +15,13 @@ use Webbycrown\BlogBagisto\Models\Blog;
 use Webbycrown\BlogBagisto\Repositories\BlogRepository;
 use Webkul\User\Models\Admin;
 use Webbycrown\BlogBagisto\Http\Requests\BlogRequest;
+use Webkul\Admin\Http\Requests\MassDestroyRequest;
 
 class BlogController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Contains route related configuration
@@ -66,9 +71,9 @@ class BlogController extends Controller
         $locale = core()->getRequestedLocaleCode();
 
         $categories = Category::all();
-
-        $additional_categories = Category::whereNull('parent_id')->where('status', 1)->get();
-
+        
+        $additional_categories = Category::where('parent_id', 0 )->where('status', 1)->get();
+        
         $tags = Tag::all();
 
         $users = Admin::all();
@@ -83,7 +88,6 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $blogRequest)
     {
-
         $data = request()->all();
 
         if (array_key_exists('locale', $data) &&  is_array($data['locale'])) {
@@ -94,20 +98,20 @@ class BlogController extends Controller
             $data['tags'] = implode(',', $data['tags']);
         }
 
-        if (array_key_exists('categorys', $data) && is_array($data['categorys'])) {
-            $data['categorys'] = implode(',', $data['categorys']);
+        if (array_key_exists('categories', $data) && is_array($data['categories'])) {
+            $data['categories'] = implode(',', $data['categories']);
         }
 
         $data['author'] = '';
         if (is_array($data) && array_key_exists('author_id', $data) && isset($data['author_id']) && (int)$data['author_id'] > 0) {
             $author_data = Admin::where('id', $data['author_id'])->first();
-            $data['author'] = ( $author_data && !empty($author_data) ) ? $author_data->name : '';
+            $data['author'] = ($author_data && !empty($author_data)) ? $author_data->name : '';
         }
 
         $result = $this->blogRepository->save($data);
 
         if ($result) {
-            session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Blog']));
+            session()->flash('success', trans('blog::app.blog.create-success'));
         } else {
             session()->flash('success', trans('blog::app.blog.created-fault'));
         }
@@ -124,18 +128,18 @@ class BlogController extends Controller
     public function edit($id)
     {
         $loggedIn_user = auth()->guard('admin')->user()->toarray();
-        $user_id = ( array_key_exists('id', $loggedIn_user) ) ? $loggedIn_user['id'] : 0;
-        $role = ( array_key_exists('role', $loggedIn_user) ) ? ( array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator' ) : 'Administrator';
+        $user_id = (array_key_exists('id', $loggedIn_user)) ? $loggedIn_user['id'] : 0;
+        $role = (array_key_exists('role', $loggedIn_user)) ? (array_key_exists('name', $loggedIn_user['role']) ? $loggedIn_user['role']['name'] : 'Administrator') : 'Administrator';
 
         $blog = $this->blogRepository->findOrFail($id);
 
-        if ( $blog && $user_id != $blog->author_id && $role != 'Administrator' ) {
+        if ($blog && $user_id != $blog->author_id && $role != 'Administrator') {
             return redirect()->route('admin.blog.index');
         }
 
         $categories = Category::all();
 
-        $additional_categories = Category::whereNull('parent_id')->where('status', 1)->get();
+        $additional_categories = Category::where('parent_id', 0)->where('status', 1)->get();
 
         $tags = Tag::all();
 
@@ -158,25 +162,25 @@ class BlogController extends Controller
         if (array_key_exists('locale', $data) && is_array($data['locale'])) {
             $data['locale'] = implode(',', $data['locale']);
         }
-        
+
         if (array_key_exists('tags', $data) && is_array($data['tags'])) {
             $data['tags'] = implode(',', $data['tags']);
         }
-        
-        if (array_key_exists('categorys', $data) && is_array($data['categorys'])) {
-            $data['categorys'] = implode(',', $data['categorys']);
+
+        if (array_key_exists('categories', $data) && is_array($data['categories'])) {
+            $data['categories'] = implode(',', $data['categories']);
         }
 
         $data['author'] = '';
         if (is_array($data) && array_key_exists('author_id', $data) && isset($data['author_id']) && (int)$data['author_id'] > 0) {
             $author_data = Admin::where('id', $data['author_id'])->first();
-            $data['author'] = ( $author_data && !empty($author_data) ) ? $author_data->name : '';
+            $data['author'] = ($author_data && !empty($author_data)) ? $author_data->name : '';
         }
 
         $result = $this->blogRepository->updateItem($data, $id);
 
         if ($result) {
-            session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Blog']));
+            session()->flash('success', trans('blog::app.blog.update-success'));
         } else {
             session()->flash('error', trans('blog::app.blog.updated-fault'));
         }
@@ -197,48 +201,31 @@ class BlogController extends Controller
         try {
             $this->blogRepository->delete($id);
 
-            return response()->json(['message' => trans('admin::app.response.delete-success', ['name' => 'Blog'])]);
+            return response()->json(['message' => trans('blog::app.blog.delete-success')]);
         } catch (\Exception $e) {
             report($e);
         }
 
-        return response()->json(['message' => trans('admin::app.response.delete-failed', ['name' => 'Blog'])], 500);
+        return response()->json(['message' => trans('blog::app.blog.delete-failure')], 500);
     }
 
     /**
      * Remove the specified resources from database.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function massDestroy()
+    public function massDestroy(MassDestroyRequest $massDestroyRequest): JsonResponse
     {
-        $suppressFlash = false;
+        $indices = $massDestroyRequest->input('indices');
 
-        if (request()->isMethod('post')) {
-            // $indexes = explode(',', request()->input('indexes'));
-            $indexes = (array)request()->input('indices');
+        foreach ($indices as $index) {
+            Event::dispatch('catalog.blog.delete.before', $index);
 
-            foreach ($indexes as $key => $value) {
-                try {
-                    $this->blogRepository->delete($value);
-                } catch (\Exception $e) {
-                    $suppressFlash = true;
+            $this->blogRepository->delete($index);
 
-                    continue;
-                }
-            }
-
-            if (! $suppressFlash) {
-                session()->flash('success', trans('admin::app.datagrid.mass-ops.delete-success', ['resource' => 'Blog']));
-            } else {
-                session()->flash('info', trans('admin::app.datagrid.mass-ops.partial-action', ['resource' => 'Blog']));
-            }
-
-            return redirect()->back();
-        } else {
-            session()->flash('error', trans('admin::app.datagrid.mass-ops.method-error'));
-
-            return redirect()->back();
+            Event::dispatch('catalog.blog.delete.after', $index);
         }
+
+        return new JsonResponse([
+            'message' => trans('blog::app.blog.datagrid.mass-delete-success'),
+        ]);
     }
 }

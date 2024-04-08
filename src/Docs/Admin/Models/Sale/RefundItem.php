@@ -43,7 +43,7 @@ class RefundItem
      * @var string
      */
     private $description;
-    
+
     /**
      * @OA\Property(
      *     title="SKU",

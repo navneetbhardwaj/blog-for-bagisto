@@ -110,7 +110,7 @@ class Blog
      * @var integer
      */
     public $status;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

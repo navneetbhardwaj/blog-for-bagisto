@@ -21,7 +21,7 @@ class Order
      * @var integer
      */
     private $id;
-    
+
     /**
      * @OA\Property(
      *     title="Increment ID",
@@ -65,7 +65,7 @@ class Order
      * @var string
      */
     private $channel_name;
-    
+
     /**
      * @OA\Property(
      *     title="Is Guest",
@@ -77,7 +77,7 @@ class Order
      * @var integer
      */
     private $is_guest;
-    
+
     /**
      * @OA\Property(
      *     title="Email",
@@ -474,7 +474,7 @@ class Order
      * @var \Webkul\RestApi\Docs\Admin\Models\Setting\Channel
      */
     private $channel;
-    
+
     /**
      * @OA\Property(
      *     title="Shipping Address",
@@ -484,7 +484,7 @@ class Order
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderAddress
      */
     private $shipping_address;
-    
+
     /**
      * @OA\Property(
      *     title="Billing Address",
@@ -494,7 +494,7 @@ class Order
      * @var \Webkul\RestApi\Docs\Admin\Models\Sale\OrderAddress
      */
     private $billing_address;
-    
+
     /**
      * @OA\Property(
      *     title="Order Items",
@@ -506,7 +506,7 @@ class Order
      * @var array
      */
     private $items;
-    
+
     /**
      * @OA\Property(
      *     title="Invoices",
@@ -518,7 +518,7 @@ class Order
      * @var array
      */
     private $invoices;
-    
+
     /**
      * @OA\Property(
      *     title="Shipments",

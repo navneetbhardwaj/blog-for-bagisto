@@ -92,11 +92,11 @@ class Role
      *          @OA\Property(property="settings.users.users.edit", type="string")
      *     )
      * )
-     * 
+     *
      * @var array
      */
     private $permission;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",

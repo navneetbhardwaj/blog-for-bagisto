@@ -17,7 +17,7 @@ class BlogCategoryRepository extends Repository
      *
      * @return mixed
      */
-    function model()
+    public function model()
     {
         return 'Webbycrown\BlogBagisto\Models\Category';
     }
@@ -34,7 +34,7 @@ class BlogCategoryRepository extends Repository
 
         $create_data = $data;
 
-        if ( array_key_exists('image', $create_data) ) {
+        if (array_key_exists('image', $create_data)) {
             unset($create_data['image']);
         }
 
@@ -60,7 +60,7 @@ class BlogCategoryRepository extends Repository
 
         $update_data = $data;
 
-        if ( array_key_exists('image', $update_data) ) {
+        if (array_key_exists('image', $update_data)) {
             unset($update_data['image']);
         }
 

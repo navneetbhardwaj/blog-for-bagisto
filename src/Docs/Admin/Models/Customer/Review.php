@@ -78,7 +78,7 @@ class Review
      * @var string
      */
     private $status;
-    
+
     /**
      * @OA\Property(
      *     title="Created at",
@@ -122,7 +122,7 @@ class Review
      *     title="Product",
      *     description="Reviewed Product"
      * )
-     * 
+     *
      * @var \Webkul\RestApi\Docs\Shop\Models\Catalog\Product
      */
     private $product;
@@ -144,7 +144,7 @@ class Review
      *     title="Customer",
      *     description="Review's Customer"
      * )
-     * 
+     *
      * @var \Webkul\RestApi\Docs\Admin\Models\Customer\Customer
      */
     private $customer;

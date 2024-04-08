@@ -98,7 +98,7 @@ class Category extends Model implements CategoryContract
             return;
         }
 
-        if ( Session::has('bCatEditId') && Session::get('bCatEditId') > 0 ) {
+        if (Session::has('bCatEditId') && Session::get('bCatEditId') > 0) {
             return Category::where('id', '!=', Session::get('bCatEditId'))->where('parent_id', $this->id)->get();
         }
 
@@ -124,11 +124,12 @@ class Category extends Model implements CategoryContract
         ->where(
             function ($query) use ($this_id) {
                 $query->where('default_category', $this_id)
-                ->orWhereRaw('FIND_IN_SET(?, categorys)', [$this_id]);
-            })
+                ->orWhereRaw('FIND_IN_SET(?, categories)', [$this_id]);
+            }
+        )
         ->get();
 
-        if ( !empty($blogs) && count($blogs) > 0 ) {
+        if (!empty($blogs) && count($blogs) > 0) {
             $assign_blogs = count($blogs);
         }
 
